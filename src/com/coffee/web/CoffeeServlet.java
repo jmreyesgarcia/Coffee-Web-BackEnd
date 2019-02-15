@@ -49,29 +49,11 @@ public class CoffeeServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print("Successfull Operation!");
 		
-		String modelType = request.getParameter("modelType");		
-		String modelContent = request.getParameter("modelContent");
+		String modelType = request.getParameter("modelType");
+		String resourceType = request.getParameter("resourceType");
+		String resourceContent = request.getParameter("resourceContent");
 		
-		Transformation.transformToHLVL(modelType, modelContent);
-		
-		/*
-		try {
-			URL url = new URL("https://www.google.com/url?q=http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml&sa=D&source=hangouts&ust=1550245400717000&usg=AFQjCNGlRzLeWWpzYUog-IVRPRU3u6bKjQ");
-			Scanner s = new Scanner(url.openStream());
-			
-			while(s.hasNext()) {
-				System.out.println(s.hasNextLine());
-			}
-			
-			// read from your scanner
-		}
-		catch(IOException ex) {
-			// there was some connection problem, or the file did not exist on the server,
-			// or your URL was not in the right format.
-			// think about what to do now, and put it here.
-			ex.printStackTrace(); // for now, simply output it.
-		}
-		*/
+		Transformation.transformToHLVL(modelType, resourceType, resourceContent);		
 	}
 
 }

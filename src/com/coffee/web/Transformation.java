@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Scanner;
 
 import com.coffee.modelParsers.utils.ParsingParameters;
 import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
@@ -11,32 +13,57 @@ import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
 public class Transformation {
 	private final static String MXGRAPH_DIR = "temp/model"; 
 	private final static String HLVL_DIR = "temp/hlvl"; 
-	private final static String DEFAULT_NAME = "model"; 
-	private final static String MXGRAPH = "MXGRAPH";
+	private final static String SPLOT_DIR = "temp/splot"; 
+	private final static String DEFAULT_NAME = "model";
 	
-	public static void transformToHLVL(String modelType, String modelContent) throws IOException {
+	private final static String MXGRAPH = "MXGRAPH";
+	private final static String SPLOT = "SPLOT";
+	
+	private final static String URL = "URL";
+	private final static String TEXT = "TEXT";
+	
+	
+	public static void transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
+		String modelContent = "";
+		switch(resourceType) {
+			case URL:
+				modelContent = urlToString(new URL(resourceContent));
+			break;
+			case TEXT:
+				modelContent = resourceContent;
+			break;
+		}
+		
+		String currentDir = "";
 		switch(modelType) {
 			case MXGRAPH:
-				transformMXGraphToHLVL(modelContent);
+				currentDir = MXGRAPH_DIR;
+			break;
+			case SPLOT:
+				currentDir = SPLOT_DIR;
+			break;
+		}
+		
+		saveInputTempFile(currentDir, modelContent);
+		
+		switch(modelType) {
+			case MXGRAPH:
+				transformMXGraphToHLVL(currentDir, modelContent);
+			break;
+			case SPLOT:
+				transformSPLOTToHLVL(currentDir, modelContent);
 			break;
 		}
 	}
 	
-	public static void transformMXGraphToHLVL(String modelContent) throws IOException {
-		File mxGraphDir = new File(MXGRAPH_DIR);
-		if(!mxGraphDir.exists()) mxGraphDir.mkdir();
-		File hlvlDir = new File(HLVL_DIR);
-		if(!hlvlDir.exists()) hlvlDir.mkdir();
+	public static void transformSPLOTToHLVL(String currentDir, String modelContent) throws IOException {
 		
-		File mxGraphModelFile = new File(MXGRAPH_DIR+"/"+DEFAULT_NAME+".xml");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(mxGraphModelFile));
-		bw.write(modelContent);
-		bw.close();
-		
-		ParsingParameters params= new ParsingParameters();
-		
-		params.setInputPath(mxGraphDir.getAbsolutePath());
-		params.setOutputPath(hlvlDir.getAbsolutePath());
+	}
+	
+	public static void transformMXGraphToHLVL(String currentDir, String modelContent) throws IOException {		
+		ParsingParameters params= new ParsingParameters();		
+		params.setInputPath(new File(currentDir).getAbsolutePath());
+		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
 		params.setTargetName(DEFAULT_NAME);
 		
 		VariamosXMLToHlvlParser parser = new VariamosXMLToHlvlParser(params);
@@ -49,4 +76,26 @@ public class Transformation {
 	}
 
 
+	private static void saveInputTempFile(String currentDir, String modelContent) throws IOException {
+		File currentFileDir = new File(currentDir);
+		if(!currentFileDir.exists()) currentFileDir.mkdir();		
+		File currentModelFile = new File(currentFileDir+"/"+DEFAULT_NAME+".xml");
+		BufferedWriter bw = new BufferedWriter(new FileWriter(currentModelFile));
+		bw.write(modelContent);
+		bw.close();
+		
+		File hlvlDir = new File(HLVL_DIR);
+		if(!hlvlDir.exists()) hlvlDir.mkdir();
+	}
+	
+	private static String urlToString(URL url) throws IOException {		
+		Scanner s = new Scanner(url.openStream());
+		String urlContent = "";
+		while(s.hasNext()) {
+			urlContent += s.nextLine();
+		}
+		s.close();
+		return urlContent;
+	}
+	
 }
