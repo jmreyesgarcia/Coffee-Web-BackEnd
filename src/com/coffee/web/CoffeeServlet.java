@@ -1,8 +1,5 @@
 package com.coffee.web;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
@@ -12,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.coffee.modelParsers.utils.ParsingParameters;
-import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
 
 /**
  * Servlet implementation class VariamosWeb
@@ -27,7 +21,6 @@ public class CoffeeServlet extends HttpServlet {
 	 * Default constructor. 
 	 */
 	public CoffeeServlet() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -46,44 +39,20 @@ public class CoffeeServlet extends HttpServlet {
 		}		
 	}
 	
-	private void transformXMLToHLVL(String xmlModel) throws IOException {
-		File directory = new File("temp");
-		if(!directory.exists()) directory.mkdir();
-		
-		File file = new File("temp/model.xml");
-		String modelFileName = file.getAbsolutePath();
-		System.out.println("pathDir:"+directory.getAbsolutePath());
-		System.out.println("pathFile:"+modelFileName);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-		bw.write(xmlModel);
-		bw.close();
-		
-		ParsingParameters params= new ParsingParameters();
-		
-		params.setInputPath(directory.getAbsolutePath());
-		params.setOutputPath(directory.getAbsolutePath());
-		params.setTargetName("model");
-		
-		VariamosXMLToHlvlParser parser = new VariamosXMLToHlvlParser(params);
-		parser.loadArrayLists();
-		try {
-			parser.parse();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		printParameters(request.getParameterMap());		
 		response.addHeader("Access-Control-Allow-Origin", "*");
+		
 		PrintWriter out = response.getWriter();
 		out.print("Successfull Operation!");
-		printParameters(request.getParameterMap());
-
-		String xmlModel = request.getParameter("xmlModel");
-		transformXMLToHLVL(xmlModel);
+		
+		String modelType = request.getParameter("modelType");		
+		String modelContent = request.getParameter("modelContent");
+		
+		Transformation.transformToHLVL(modelType, modelContent);
 		
 		/*
 		try {

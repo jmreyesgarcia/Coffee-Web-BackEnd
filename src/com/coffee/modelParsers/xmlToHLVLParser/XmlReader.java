@@ -82,8 +82,7 @@ public class XmlReader {
 		importantXmlDependecy = new ArrayList<Dependecy>();
 		xmlElements = new HashMap<String, Element>();
 
-		FileUtils fileUtils = new FileUtils();
-		List<File> xmlFiel = fileUtils.readFileFromDirectory(path);
+		List<File> xmlFiel = FileUtils.readFileFromDirectory(path);
 
 		try {
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
