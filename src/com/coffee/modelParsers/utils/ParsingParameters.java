@@ -3,6 +3,7 @@ package com.coffee.modelParsers.utils;
 /**
  * Parameters for the splot to HLVL parameters
  * @author Angela Villota
+ * Modified by Juan Reyes - 2019-02-15
  * January 2019
  */
 
@@ -20,7 +21,7 @@ public class ParsingParameters {
 	 * @return the outputPath
 	 */
 	public String getOutputPath() {
-		return outputPath+"/"+targetName+ HLVL_EXT;
+		return outputPath+"/"+targetName+ HLVL_EXT; // Symbol "/" was added between outputPath and targetName
 	}
 	/**
 	 * @param outputPath the outputPath to set

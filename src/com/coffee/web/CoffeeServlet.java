@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * @author Juan Reyes
  * Servlet implementation class VariamosWeb
  */
 @WebServlet("/coffee")
@@ -30,16 +31,7 @@ public class CoffeeServlet extends HttpServlet {
 		doPost(request, response);
 	}
 	
-	private void printParameters(Map<String, String[]> data) {
-		for (Map.Entry<String, String[]> param : data.entrySet()) {			
-			System.out.println(param.getKey());
-			for (String value: param.getValue()) {
-				System.out.println(value+" ");
-			}
-		}		
-	}
-	
-	/**
+	/** 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,7 +45,15 @@ public class CoffeeServlet extends HttpServlet {
 		String resourceType = request.getParameter("resourceType");
 		String resourceContent = request.getParameter("resourceContent");
 		
-		Transformation.transformToHLVL(modelType, resourceType, resourceContent);		
+		//Transformation.transformToHLVL(modelType, resourceType, resourceContent);
 	}
 
+	private void printParameters(Map<String, String[]> data) {
+		for (Map.Entry<String, String[]> param : data.entrySet()) {			
+			System.out.println(param.getKey());
+			for (String value: param.getValue()) {
+				System.out.println(value+" ");
+			}
+		}		
+	}	
 }

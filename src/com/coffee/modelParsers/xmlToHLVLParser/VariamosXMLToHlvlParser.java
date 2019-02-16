@@ -159,7 +159,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 							findGroupsElements(entry.getValue()), GroupType.Or));
 				else
 					HlvlCode.append("	" + converter.getGroup(findRootBundle(entry.getValue()),
-							findGroupsElements(entry.getValue()), GroupType.Alternative));
+							findGroupsElements(entry.getValue()), GroupType.Xor));
 				break;
 			}
 
