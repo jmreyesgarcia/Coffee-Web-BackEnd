@@ -13,9 +13,7 @@ import com.coffee.modelParsers.utils.ParsingParameters;
 import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
 
 /**
- * 
- * @author Juan Reyes
- *
+ * @author Juan Reyes <jmreyes@icesi.edu.co>
  */
 public class Transformation {
 	private final static String VARXML = "VARXML";
@@ -28,7 +26,7 @@ public class Transformation {
 	private final static String HLVL_DIR = "temp/hlvl"; 
 	private final static String SPLOT_DIR = "temp/splot"; 
 	private final static String DEFAULT_NAME = "model";
-		
+	
 	public static void transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
 		System.out.println("On transformToHLVL");
 		String modelContent = "";
@@ -64,7 +62,7 @@ public class Transformation {
 		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
 		params.setTargetName(DEFAULT_NAME);
 		
-		IHlvlParser parser = null;
+		IHlvlParser parser = null;//ParserFactory.createParser(modelType,params);
 		
 		switch(modelType) {
 			case VARXML:
