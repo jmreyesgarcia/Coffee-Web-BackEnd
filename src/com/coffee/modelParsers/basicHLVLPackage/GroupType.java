@@ -8,7 +8,7 @@ package com.coffee.modelParsers.basicHLVLPackage;
  * January 2019
  */
 public enum GroupType {
-	Alternative,
+	Xor,
 	Or,
 	And
 }
