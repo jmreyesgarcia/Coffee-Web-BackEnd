@@ -29,6 +29,9 @@ public class Transformation {
 	public final static String URL = "URL";
 	public final static String TEXT = "TEXT";
 	
+	public final static String JSON = "JSON";
+	public final static String HTML = "HTML";
+	
 	private final static String BASE_DIR = "temp";
 	private final static String VARXML_DIR = BASE_DIR+"/model"; 
 	private final static String HLVL_DIR = BASE_DIR+"/hlvl";
@@ -36,7 +39,7 @@ public class Transformation {
 	
 	private final static String DEFAULT_NAME = "model";
 	
-	public static String transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
+	public static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType) throws IOException {
 		String modelContent = getModelContent(resourceType, resourceContent);		
 		String currentDir = getCurrentDir(modelType);
 		
@@ -44,31 +47,58 @@ public class Transformation {
 		saveInputTempFile(currentDir, modelContent);
 		
 		convertToHLVL(modelType, currentDir, modelContent);
-		String jsonResult = buildJSONResult(modelType, resourceType, resourceContent,currentDir);
-		return jsonResult;
+		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent,responseType, currentDir);
+		String responseText = formatResult(responseType, jsonResult);
+		return responseText;
 	}
 	
-	private static String buildJSONResult(String modelType, String resourceType, String resourceContent,
+	private static String formatResult(String responseType, JsonObject jsonResult) {
+		String formatedString = "";
+		switch(responseType) {
+			case JSON:
+				formatedString = jsonResult.toString();
+			break;
+			case HTML:
+				formatedString = buildHTMLPage(jsonResult);
+			break;
+		}
+		return formatedString;
+	}
+
+	private static String buildHTMLPage(JsonObject jsonResult) {
+		String htmlPage = "<html>\n  <head>\n    <title>Test Results</title>\n  </head>\n  <body>\n";
+		
+		htmlPage += "    <h1>Test Results</h1>\n";
+		htmlPage += "    <h2>Input Params</h2>\n";
+		htmlPage += "    <p>modelType="+jsonResult.getString("modelType")+"</p>\n";
+		htmlPage += "    <p>resourceType="+jsonResult.getString("resourceType")+"</p>\n";
+		htmlPage += "    <p>responseType="+jsonResult.getString("responseType")+"</p>\n";
+		htmlPage += "    <p>resourceContent:</p>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("resourceContent").replaceAll("<", "&lt;")+"</pre></p>\n";
+		htmlPage += "    <h2>Output</h2>\n";
+		htmlPage += "    <h3>sourceModel:</h3>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("sourceModel").replaceAll("<", "&lt;")+"</pre></p>\n";
+		htmlPage += "    <h3>HLVL:</h3>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("hlvl").replaceAll("<", "&lt;")+"<>/pre</p>\n";
+		
+		htmlPage += "  </body>\n</html>";
+		return htmlPage;
+	}
+
+	private static JsonObject buildJsonResult(String modelType, String resourceType, String resourceContent, String responseType,
 			String currentDir) throws IOException {
 
 		JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
 				  .add("modelType", modelType)
 				  .add("resourceType", resourceType)
 				  .add("resourceContent", resourceContent)
+				  .add("responseType", responseType)
 				  .add("sourceModel", localPathToString(currentDir+"/"+DEFAULT_NAME+".xml"))
 				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"));
 		
 		JsonObject jsonObject = objectBuilder.build();
         
-		String jsonString = jsonObject.toString();
-		
-		/*//it is another way to get the json String from a json object
-		try(Writer writer = new StringWriter()) {
-		    Json.createWriter(writer).write(jsonObject);
-		    jsonString = writer.toString();
-		}*/
-				
-		return jsonString;
+		return jsonObject;
 	}
 	private static String getCurrentDir(String modelType) {
 		String currentDir = "";

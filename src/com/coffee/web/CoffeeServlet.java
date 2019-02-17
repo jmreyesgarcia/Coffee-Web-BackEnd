@@ -44,8 +44,9 @@ public class CoffeeServlet extends HttpServlet {
 		String modelType = request.getParameter("modelType");
 		String resourceType = request.getParameter("resourceType");
 		String resourceContent = request.getParameter("resourceContent");
+		String responseType = request.getParameter("responseType");
 		
-		String stringResponse = Transformation.transformToHLVL(modelType, resourceType, resourceContent);
+		String stringResponse = Transformation.transformToHLVL(modelType, resourceType, resourceContent, responseType);
 		out.print(stringResponse);
 	}
 
