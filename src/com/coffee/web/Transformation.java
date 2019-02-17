@@ -40,13 +40,18 @@ public class Transformation {
 	private final static String DEFAULT_NAME = "model";
 	
 	public static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType) throws IOException {
+		//Aquí elegimos si viene por texto o por url
 		String modelContent = getModelContent(resourceType, resourceContent);		
+		//Aquí elegimos que parser hará la transformación
 		String currentDir = getCurrentDir(modelType);
-		
+		//Aquí verificamos el directorio y lo creamos en caso de estar vacío
 		verifyDirectory(BASE_DIR);
+		//Aquí creamos los archivos
 		saveInputTempFile(currentDir, modelContent);
-		
+		//Aquí hacemos las transformaciones
 		convertToHLVL(modelType, currentDir, modelContent);
+
+		//Aquí crea el archivo Json
 		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent,responseType, currentDir);
 		String responseText = formatResult(responseType, jsonResult);
 		return responseText;
