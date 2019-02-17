@@ -128,7 +128,7 @@ public class Transformation {
 	
 	public static void convertToHLVL(String modelType, String currentDir, String modelContent) throws IOException {
 		ParsingParameters params= new ParsingParameters();
-		params.setInputPath(new File(currentDir).getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
+		params.setInputPath(new File(currentDir).getAbsolutePath());
 		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
 		params.setTargetName(DEFAULT_NAME);
 		
