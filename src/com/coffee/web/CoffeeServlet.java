@@ -39,13 +39,14 @@ public class CoffeeServlet extends HttpServlet {
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		
 		PrintWriter out = response.getWriter();
-		out.print("Successfull Operation!");
+		//out.print("Successfull Operation!");
 		
 		String modelType = request.getParameter("modelType");
 		String resourceType = request.getParameter("resourceType");
 		String resourceContent = request.getParameter("resourceContent");
 		
-		Transformation.transformToHLVL(modelType, resourceType, resourceContent);
+		String stringResponse = Transformation.transformToHLVL(modelType, resourceType, resourceContent);
+		out.print(stringResponse);
 	}
 
 	private void printParameters(Map<String, String[]> data) {

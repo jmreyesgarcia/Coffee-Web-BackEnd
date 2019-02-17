@@ -1,11 +1,18 @@
 package com.coffee.web;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
 import com.coffee.modelParsers.splot2HLVL.Splot2HlvlParser;
@@ -29,32 +36,64 @@ public class Transformation {
 	
 	private final static String DEFAULT_NAME = "model";
 	
-	public static void transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
-		String modelContent = "";
-		
-		switch(resourceType) {
-			case URL:
-				modelContent = urlToString(new URL(resourceContent));
-			break;
-			case TEXT:
-				modelContent = resourceContent;
-			break;
-		}
-		
-		String currentDir = "";
-		switch(modelType) {
-			case VARXML:
-				currentDir = VARXML_DIR;
-			break;
-			case SPLOT:
-				currentDir = SPLOT_DIR;
-			break;
-		}
+	public static String transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
+		String modelContent = getModelContent(resourceType, resourceContent);		
+		String currentDir = getCurrentDir(modelType);
 		
 		verifyDirectory(BASE_DIR);
 		saveInputTempFile(currentDir, modelContent);
 		
 		convertToHLVL(modelType, currentDir, modelContent);
+		String jsonResult = buildJSONResult(modelType, resourceType, resourceContent,currentDir);
+		return jsonResult;
+	}
+	
+	private static String buildJSONResult(String modelType, String resourceType, String resourceContent,
+			String currentDir) throws IOException {
+
+		JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
+				  .add("modelType", modelType)
+				  .add("resourceType", resourceType)
+				  .add("resourceContent", resourceContent)
+				  .add("sourceModel", localPathToString(currentDir+"/"+DEFAULT_NAME+".xml"))
+				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"));
+		
+		JsonObject jsonObject = objectBuilder.build();
+        
+		String jsonString = jsonObject.toString();
+		
+		/*//it is another way to get the json String from a json object
+		try(Writer writer = new StringWriter()) {
+		    Json.createWriter(writer).write(jsonObject);
+		    jsonString = writer.toString();
+		}*/
+				
+		return jsonString;
+	}
+	private static String getCurrentDir(String modelType) {
+		String currentDir = "";
+		switch(modelType) {
+			case VARXML:
+				currentDir = VARXML_DIR;
+				break;
+			case SPLOT:
+				currentDir = SPLOT_DIR;
+				break;
+		}
+		return currentDir;
+	}
+	
+	private static String getModelContent(String resourceType, String resourceContent) throws MalformedURLException, IOException {
+		String modelContent = "";
+		switch(resourceType) {
+			case URL:
+				modelContent = urlToString(new URL(resourceContent));
+				break;
+			case TEXT:
+				modelContent = resourceContent;
+				break;
+		}
+		return modelContent;
 	}
 	
 	public static void convertToHLVL(String modelType, String currentDir, String modelContent) throws IOException {
@@ -110,6 +149,17 @@ public class Transformation {
 		}
 		s.close();
 		return urlContent;
+	}
+	
+	private static String localPathToString(String filePath) throws IOException {		
+		BufferedReader br = new BufferedReader(new FileReader(filePath));
+		String fileContent = "";
+		String line;
+		while((line = br.readLine())!=null) {
+			fileContent += line+"\n";
+		}
+		br.close();
+		return fileContent;
 	}
 	
 }
