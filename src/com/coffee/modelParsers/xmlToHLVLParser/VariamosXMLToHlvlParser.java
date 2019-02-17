@@ -2,15 +2,12 @@ package com.coffee.modelParsers.xmlToHLVLParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
-
-import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
-import com.coffee.modelParsers.basicHLVLPackage.GroupType;
-import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
-import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
-import com.coffee.modelParsers.basicHLVLPackage.IhlvlBasicFactory;
+import com.coffee.modelParsers.basicHLVLPackage.*;
 import com.coffee.modelParsers.utils.FileUtils;
 import com.coffee.modelParsers.utils.ParsingParameters;
+
 
 /**
  * Esta es una clase que es responsable de extraer informaci�n del objeto del
@@ -96,7 +93,9 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 	public void converterXmlDependecyToHLVLCode() {
 		HlvlCode.append(converter.getRelationsLab());
 		converterGroupAndCore();
+		System.out.println(importantXmlDependecy.size());
 		for (int i = 0; i < importantXmlDependecy.size(); i++) {
+
 			String target = getValidName(searchForName(importantXmlDependecy.get(i).getTarget()));
 			String source = getValidName(searchForName(importantXmlDependecy.get(i).getSource()));
 			String caso = importantXmlDependecy.get(i).getRelType();
@@ -108,7 +107,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 				HlvlCode.append("	" + converter.getDecomposition(target, source, DecompositionType.Optional));
 				break;
 			case "requires":
-				HlvlCode.append("	" + converter.getImplies(target, source));
+				HlvlCode.append("	" + converter.getImplies(source, target));
 				break;
 			case "excludes":
 				HlvlCode.append("	" + converter.getMutex(target, source));
@@ -136,7 +135,9 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 
 		for (Entry<String, Element> entry : xmlElements.entrySet()) {
 			String name = getValidName(entry.getValue().getName());
-			HlvlCode.append("	" + converter.getElement(name));
+			if (!name.equals("bundle")) {
+				HlvlCode.append("	" + converter.getElement(name));
+			}
 		}
 
 	}
@@ -162,9 +163,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 							findGroupsElements(entry.getValue()), GroupType.Xor));
 				break;
 			}
-
 		}
-
 	}
 
 	/**
@@ -225,6 +224,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 	 */
 	@Override
 	public void parse() throws Exception {
+		System.out.println("YA entro a transformar");
 		HlvlCode.append(converter.getHeader("basicFeatureModel"));
 		converterXmlElementToHLVLCode();
 		converterXmlDependecyToHLVLCode();
