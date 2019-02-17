@@ -5,6 +5,38 @@
 <title>Coffee Test Page</title>
 </head>
 <body>
-<a href="coffee?modelType=MXGRAPH&modelContent=xmlsample">Test Model Transformation!</a>
+	<h1>Coffee Test Page</h1>
+
+	<h2>Test 1</h2>
+	<a target="_blank"
+		href="coffee?modelType=SPLOT&resourceType=URL&resourceContent=http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml">
+		Test Model Transformation for model_20190117_1122449247.xml in
+		http://52.32.1.180:8080/SPLOT/models </a>
+	<h2>Test 2</h2>
+	<form method="POST" action="coffee" target="_blank">
+		<table style="width:100%;">
+			<tr>
+				<td style="width:100px;">Model Type:</td>
+				<td><select name="modelType">
+						<option value="SPLOT">SPLOT</option>
+						<option value="VARXML">VARXML</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Resource Type:</td>
+				<td><select name="resourceType">
+						<option value="URL">URL</option>
+						<option value="TEXT">TEXT</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Resource Content:</td>
+				<td><textarea name="resourceContent" style="width:100%;" rows="5">http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Transform!" /></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
