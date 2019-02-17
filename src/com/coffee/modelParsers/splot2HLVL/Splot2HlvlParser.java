@@ -87,7 +87,6 @@ public class Splot2HlvlParser implements IHlvlParser{
 			//traversing the feature tree for obtaining the feature and the hierarchical dependencies
 			traverseDFS(featureModel.getRoot(), 0);
 			
-			
 			traverseConstraints(featureModel);	
 			
 			// formating the output file

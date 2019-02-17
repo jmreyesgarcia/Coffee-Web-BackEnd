@@ -16,19 +16,20 @@ import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
  * @author Juan Reyes <jmreyes@icesi.edu.co>
  */
 public class Transformation {
-	private final static String VARXML = "VARXML";
-	private final static String SPLOT = "SPLOT";
+	public final static String VARXML = "VARXML";
+	public final static String SPLOT = "SPLOT";
 	
-	private final static String URL = "URL";
-	private final static String TEXT = "TEXT";
+	public final static String URL = "URL";
+	public final static String TEXT = "TEXT";
 	
-	private final static String VARXML_DIR = "temp/model"; 
-	private final static String HLVL_DIR = "temp/hlvl"; 
-	private final static String SPLOT_DIR = "temp/splot"; 
+	private final static String BASE_DIR = "temp";
+	private final static String VARXML_DIR = BASE_DIR+"/model"; 
+	private final static String HLVL_DIR = BASE_DIR+"/hlvl";
+	private final static String SPLOT_DIR = BASE_DIR+"/splot";
+	
 	private final static String DEFAULT_NAME = "model";
 	
 	public static void transformToHLVL(String modelType, String resourceType, String resourceContent) throws IOException {
-		System.out.println("On transformToHLVL");
 		String modelContent = "";
 		
 		switch(resourceType) {
@@ -50,13 +51,13 @@ public class Transformation {
 			break;
 		}
 		
+		verifyDirectory(BASE_DIR);
 		saveInputTempFile(currentDir, modelContent);
 		
 		convertToHLVL(modelType, currentDir, modelContent);
 	}
 	
 	public static void convertToHLVL(String modelType, String currentDir, String modelContent) throws IOException {
-		System.out.println("On convertToHLVL");
 		ParsingParameters params= new ParsingParameters();
 		params.setInputPath(new File(currentDir).getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
 		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
@@ -80,12 +81,19 @@ public class Transformation {
 			e.printStackTrace();
 		}		
 	}
+	
+	private static File verifyDirectory(String dir) {
+		File fileDir = new File(dir);
+		//System.out.println("fileDir: "+fileDir.getAbsolutePath());
+		if(!fileDir.exists()) fileDir.mkdir();
+		return fileDir;
+	}
 
 	private static void saveInputTempFile(String currentDir, String modelContent) throws IOException {
-		File currentFileDir = new File(currentDir);
-		if(!currentFileDir.exists()) currentFileDir.mkdir();
+		File currentFileDir = verifyDirectory(currentDir);
 		
-		File currentModelFile = new File(currentFileDir+"/"+DEFAULT_NAME+".xml");
+		File currentModelFile = new File(currentFileDir.getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
+		//System.out.println(currentModelFile.getAbsolutePath());
 		BufferedWriter bw = new BufferedWriter(new FileWriter(currentModelFile));
 		bw.write(modelContent);
 		bw.close();
@@ -98,7 +106,7 @@ public class Transformation {
 		Scanner s = new Scanner(url.openStream());
 		String urlContent = "";
 		while(s.hasNext()) {
-			urlContent += s.nextLine();
+			urlContent += s.nextLine()+"\n";
 		}
 		s.close();
 		return urlContent;
