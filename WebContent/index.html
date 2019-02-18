@@ -10,28 +10,81 @@
 	<h2>Test 1</h2>
 	<a target="_blank"
 		href="coffee?modelType=SPLOT&resourceType=URL&responseType=HTML&resourceContent=http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml">
-		Test Model Transformation for model_20190117_1122449247.xml in
-		http://52.32.1.180:8080/SPLOT/models </a>
+		Test Model Transformation</a> for SPLOT model in
+	http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml
 	<h2>Test 2</h2>
 	<form method="POST" action="coffee" target="_blank">
-		<table style="width:100%;">
+		<table style="width: 100%;">
 			<tr>
-				<td style="width:100px;">Model Type:</td>
-				<td><select name="modelType">
+				<td style="width: 100px;">Model Type:</td>
+				<td colspan="2"><select name="modelType">
 						<option value="SPLOT">SPLOT</option>
 						<option value="VARXML">VARXML</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td>Resource Type:</td>
-				<td><select name="resourceType">
-						<option value="URL">URL</option>
+				<td colspan="2"><select name="resourceType">
 						<option value="TEXT">TEXT</option>
+						<option value="URL">URL</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td>Resource Content:</td>
-				<td><textarea name="resourceContent" style="width:100%;" rows="8">http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml</textarea></td>
+				<td colspan="2"><textarea name="resourceContent" style="width: 100%;"
+						rows="8">&lt;!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jan 17, 2019 - 4:20 AM  -->
+&lt;feature_model name="Graph Product Line">
+&lt;meta>
+&lt;data name="description">A simple graph product line&lt;/data>
+&lt;data name="creator">Don Batory&lt;/data>
+&lt;data name="address">&lt;/data>
+&lt;data name="email">batory@cs.utexas.edu&lt;/data>
+&lt;data name="phone">&lt;/data>
+&lt;data name="website">http://www.cs.utexas.edu/~dsb/&lt;/data>
+&lt;data name="organization">University of Texas at Austin&lt;/data>
+&lt;data name="department">&lt;/data>
+&lt;data name="date">&lt;/data>
+&lt;data name="reference">Don S. Batory. Feature models, grammars, and propositional formulas. In Software Product Lines, 9th International Conference, SPLC 2005, Rennes, France, September 26-29, 2005, Proceedings, volume 3714 of Lecture Notes in Computer Science, pages 7-20. Springer, 2005&lt;/data>
+&lt;/meta>
+&lt;feature_tree>
+:r GPL(_r)
+	:m Gtp(_r_3)
+		:g (_r_3_4) [1,1] 
+			: directed(_r_3_4_5)
+			: undirected(_r_3_4_6)
+	:o Weight(_r_10)
+		:g (_r_10_11) [1,1] 
+			: weighted(_r_10_11_12)
+			: unweighted(_r_10_11_13)
+	:o Search(_r_15)
+		:g (_r_15_16) [1,1] 
+			: BFS(_r_15_16_17)
+			: DFS(_r_15_16_18)
+	:m Algorithms(_r_19)
+		:g (_r_19_20) [1,*] 
+			: connected(_r_19_20_22)
+			: stronglyc(_r_19_20_23)
+			: cycle(_r_19_20_24)
+			: mstprim(_r_19_20_25)
+			: mstkruskal(_r_19_20_26)
+			: shortest(_r_19_20_27)
+&lt;/feature_tree>
+&lt;constraints>
+constraint11:_r_10_11_13 or ~_r_19_20_25
+constraint_17:~_r_19_20_23 or ~_r_19_20_27
+constraint10:_r_3_4_6 or ~_r_19_20_25
+constraint13:_r_3_4_5 or ~_r_19_20_27
+constraint12:~_r_19_20_25 or ~_r_19_20_26
+constraint9:_r_10_11_13 or ~_r_19_20_26
+constraint6:_r_3_4_6 or ~_r_19_20_23
+constraint_13:~_r_19_20_22 or ~_r_19_20_23
+constraint5:_r_15 or ~_r_19_20_22
+constraint8:_r_3_4_6 or ~_r_19_20_26
+constraint_15:~_r_19_20_26 or ~_r_19_20_27
+constraint_16:~_r_19_20_25 or ~_r_19_20_27
+constraint7:_r_15_16_18 or ~_r_19_20_24
+&lt;/constraints>
+&lt;/feature_model></textarea></td>
 			</tr>
 			<tr>
 				<td>Response Type:</td>
@@ -39,9 +92,14 @@
 						<option value="HTML">HTML</option>
 						<option value="JSON">JSON</option>
 				</select></td>
+				<td style="font-size:10px;">Remember, if you choose the JSON response type and you have
+					tags like html or xml in model formats, this content will not be
+					display in web browser for obvious reasons. Anyway, you can display
+					the tags if you view the source code of web page that display the
+					json data.</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Transform!" /></td>
+				<td colspan="3"><input type="submit" value="Transform!" /></td>
 			</tr>
 		</table>
 	</form>

@@ -84,7 +84,7 @@ public class Transformation {
 		htmlPage += "    <h3>sourceModel:</h3>\n";
 		htmlPage += "    <p><pre>"+jsonResult.getString("sourceModel").replaceAll("<", "&lt;")+"</pre></p>\n";
 		htmlPage += "    <h3>HLVL:</h3>\n";
-		htmlPage += "    <p><pre>"+jsonResult.getString("hlvl").replaceAll("<", "&lt;")+"<>/pre</p>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("hlvl").replaceAll("<", "&lt;")+"</pre></p>\n";
 		
 		htmlPage += "  </body>\n</html>";
 		return htmlPage;
@@ -92,7 +92,7 @@ public class Transformation {
 
 	private static JsonObject buildJsonResult(String modelType, String resourceType, String resourceContent, String responseType,
 			String currentDir) throws IOException {
-
+System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 		JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
 				  .add("modelType", modelType)
 				  .add("resourceType", resourceType)
@@ -102,7 +102,7 @@ public class Transformation {
 				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"));
 		
 		JsonObject jsonObject = objectBuilder.build();
-        
+        System.out.println(jsonObject.toString());
 		return jsonObject;
 	}
 	private static String getCurrentDir(String modelType) {
@@ -167,7 +167,7 @@ public class Transformation {
 		File currentFileDir = verifyDirectory(currentDir);
 		
 		File currentModelFile = new File(currentFileDir.getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
-		//System.out.println(currentModelFile.getAbsolutePath());
+		System.out.println(currentModelFile.getAbsolutePath());
 		BufferedWriter bw = new BufferedWriter(new FileWriter(currentModelFile));
 		bw.write(modelContent);
 		bw.close();
