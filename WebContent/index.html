@@ -2,10 +2,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Coffee Test Page</title>
+<title>Coffee Backend Test Page</title>
+<script>
+function loadURLInArea(){
+	var relativePathVARXML = "variamosbackend/VarXMLTest.xml";
+	
+	var link = document.getElementById("test2linkId");
+	link.href = link.href + window.location.origin+"/"+relativePathVARXML;
+	
+	var span = document.getElementById("urlTextId");
+	span.innerHTML = window.location.origin+"/"+relativePathVARXML;
+}
+</script>
 </head>
-<body>
-	<h1>Coffee Test Page</h1>
+<body onLoad="loadURLInArea()">
+	<h1>Coffee Backend Test Page</h1>
 
 	<h2>Test 1</h2>
 	<a target="_blank"
@@ -13,13 +24,17 @@
 		Test Model Transformation</a> for SPLOT model in
 	http://52.32.1.180:8080/SPLOT/models/temp_models/model_20190117_1122449247.xml
 	<h2>Test 2</h2>
+	<a target="_blank" id="test2linkId"
+		href="coffee?modelType=VARXML&resourceType=URL&responseType=HTML&resourceContent=">
+		Test Model Transformation</a> for VARXML model in <span id="urlTextId"></span>
+	<h2>Test 3</h2>
 	<form method="POST" action="coffee" target="_blank">
 		<table style="width: 100%;">
 			<tr>
 				<td style="width: 100px;">Model Type:</td>
 				<td colspan="2"><select name="modelType">
-						<option value="SPLOT">SPLOT</option>
 						<option value="VARXML">VARXML</option>
+						<option value="SPLOT">SPLOT</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -32,59 +47,104 @@
 			<tr>
 				<td>Resource Content:</td>
 				<td colspan="2"><textarea name="resourceContent" style="width: 100%;"
-						rows="8">&lt;!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jan 17, 2019 - 4:20 AM  -->
-&lt;feature_model name="Graph Product Line">
-&lt;meta>
-&lt;data name="description">A simple graph product line&lt;/data>
-&lt;data name="creator">Don Batory&lt;/data>
-&lt;data name="address">&lt;/data>
-&lt;data name="email">batory@cs.utexas.edu&lt;/data>
-&lt;data name="phone">&lt;/data>
-&lt;data name="website">http://www.cs.utexas.edu/~dsb/&lt;/data>
-&lt;data name="organization">University of Texas at Austin&lt;/data>
-&lt;data name="department">&lt;/data>
-&lt;data name="date">&lt;/data>
-&lt;data name="reference">Don S. Batory. Feature models, grammars, and propositional formulas. In Software Product Lines, 9th International Conference, SPLC 2005, Rennes, France, September 26-29, 2005, Proceedings, volume 3714 of Lecture Notes in Computer Science, pages 7-20. Springer, 2005&lt;/data>
-&lt;/meta>
-&lt;feature_tree>
-:r GPL(_r)
-	:m Gtp(_r_3)
-		:g (_r_3_4) [1,1] 
-			: directed(_r_3_4_5)
-			: undirected(_r_3_4_6)
-	:o Weight(_r_10)
-		:g (_r_10_11) [1,1] 
-			: weighted(_r_10_11_12)
-			: unweighted(_r_10_11_13)
-	:o Search(_r_15)
-		:g (_r_15_16) [1,1] 
-			: BFS(_r_15_16_17)
-			: DFS(_r_15_16_18)
-	:m Algorithms(_r_19)
-		:g (_r_19_20) [1,*] 
-			: connected(_r_19_20_22)
-			: stronglyc(_r_19_20_23)
-			: cycle(_r_19_20_24)
-			: mstprim(_r_19_20_25)
-			: mstkruskal(_r_19_20_26)
-			: shortest(_r_19_20_27)
-&lt;/feature_tree>
-&lt;constraints>
-constraint11:_r_10_11_13 or ~_r_19_20_25
-constraint_17:~_r_19_20_23 or ~_r_19_20_27
-constraint10:_r_3_4_6 or ~_r_19_20_25
-constraint13:_r_3_4_5 or ~_r_19_20_27
-constraint12:~_r_19_20_25 or ~_r_19_20_26
-constraint9:_r_10_11_13 or ~_r_19_20_26
-constraint6:_r_3_4_6 or ~_r_19_20_23
-constraint_13:~_r_19_20_22 or ~_r_19_20_23
-constraint5:_r_15 or ~_r_19_20_22
-constraint8:_r_3_4_6 or ~_r_19_20_26
-constraint_15:~_r_19_20_26 or ~_r_19_20_27
-constraint_16:~_r_19_20_25 or ~_r_19_20_27
-constraint7:_r_15_16_18 or ~_r_19_20_24
-&lt;/constraints>
-&lt;/feature_model></textarea></td>
+						rows="8">&lt;mxGraphModel>
+  &lt;root>
+    &lt;mxCell id="0"/>
+    &lt;mxCell id="feature" parent="0"/>
+    &lt;root label="chess" type="root" id="1">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="410" y="20" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/root>
+    &lt;general label="board" type="general" id="2">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="250" y="110" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/general>
+    &lt;rel_general_root type="relation" relType="mandatory" id="3">
+      &lt;mxCell edge="1" parent="feature" source="2" target="1">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_general_root>
+    &lt;general label="pieces" type="general" id="6">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="410" y="110" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/general>
+    &lt;rel_general_root type="relation" relType="mandatory" id="7">
+      &lt;mxCell edge="1" parent="feature" source="6" target="1">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_general_root>
+    &lt;leaf label="clock" type="leaf" selected="true" id="9">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="570" y="110" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+    &lt;rel_leaf_root type="relation" relType="optional" id="10">
+      &lt;mxCell edge="1" parent="feature" source="9" target="1">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_leaf_root>
+    &lt;general label="minorPieces" type="general" id="12">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="380" y="180" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/general>
+    &lt;general label="largerPieces" type="general" id="13">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="490" y="180" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/general>
+    &lt;leaf label="pawns" type="leaf" selected="true" id="15">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="270" y="180" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+    &lt;rel_general_general type="relation" relType="optional" id="16">
+      &lt;mxCell edge="1" parent="feature" source="13" target="6">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_general_general>
+    &lt;rel_general_general type="relation" relType="optional" id="17">
+      &lt;mxCell edge="1" parent="feature" source="12" target="6">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_general_general>
+    &lt;rel_leaf_general type="relation" relType="optional" id="18">
+      &lt;mxCell edge="1" parent="feature" source="15" target="6">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_leaf_general>
+    &lt;leaf label="leaf" type="leaf" selected="true" id="19">
+      &lt;mxCell style="" vertex="1" parent="feature">
+        &lt;mxGeometry x="610" y="180" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+    &lt;rel_leaf_general type="relation" relType="mandatory" id="20">
+      &lt;mxCell edge="1" parent="feature" source="19" target="6">
+        &lt;mxGeometry relative="1" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/rel_leaf_general>
+    &lt;mxCell id="component" parent="0" visible="0"/>
+    &lt;mxCell id="binding_feature_component" parent="0" visible="0"/>
+    &lt;leaf label="clock" type="leaf" selected="true" id="clon9">
+      &lt;mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        &lt;mxGeometry x="570" y="110" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+    &lt;leaf label="pawns" type="leaf" selected="true" id="clon15">
+      &lt;mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        &lt;mxGeometry x="290" y="170" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+    &lt;leaf label="leaf" type="leaf" selected="true" id="clon19">
+      &lt;mxCell style="fillColor=#DCDCDC;" vertex="1" parent="binding_feature_component">
+        &lt;mxGeometry x="610" y="180" width="100" height="35" as="geometry"/>
+      &lt;/mxCell>
+    &lt;/leaf>
+  &lt;/root>
+&lt;/mxGraphModel></textarea></td>
 			</tr>
 			<tr>
 				<td>Response Type:</td>
@@ -93,7 +153,7 @@ constraint7:_r_15_16_18 or ~_r_19_20_24
 						<option value="JSON">JSON</option>
 				</select></td>
 				<td style="font-size:10px;">Remember, if you choose the JSON response type and you have
-					tags like html or xml in model formats, this content will not be
+					tags like html or xml in model json formats, this content tags will not be
 					display in web browser for obvious reasons. Anyway, you can display
 					the tags if you view the source code of web page that display the
 					json data.</td>

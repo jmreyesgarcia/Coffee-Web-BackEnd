@@ -8,12 +8,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
+import com.coffee.common.commandExecutor.CmdExecutor;
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
 import com.coffee.modelParsers.splot2HLVL.Splot2HlvlParser;
 import com.coffee.modelParsers.utils.ParsingParameters;
@@ -37,24 +40,53 @@ public class Transformation {
 	private final static String HLVL_DIR = BASE_DIR+"/hlvl";
 	private final static String SPLOT_DIR = BASE_DIR+"/splot";
 	
-	private final static String DEFAULT_NAME = "model";
+	private final static String HLVL_PARSER_BASE_DIR = "src-gen";
+	private final static String HLVL_PARSER_BASIC_BOOL = "BasicFeatureModel_bool.mzn";
+	private final static String HLVL_PARSER_BASIC_OPS = "BasicFeatureModel_Operations.json";
 	
-	public static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType) throws IOException {
-		//Aquí elegimos si viene por texto o por url
-		String modelContent = getModelContent(resourceType, resourceContent);		
-		//Aquí elegimos que parser hará la transformación
-		String currentDir = getCurrentDir(modelType);
-		//Aquí verificamos el directorio y lo creamos en caso de estar vacío
-		verifyDirectory(BASE_DIR);
-		//Aquí creamos los archivos
-		saveInputTempFile(currentDir, modelContent);
-		//Aquí hacemos las transformaciones
-		convertToHLVL(modelType, currentDir, modelContent);
+	
+	private final static String DEFAULT_NAME = "model";
 
-		//Aquí crea el archivo Json
-		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent,responseType, currentDir);
+	
+	public static String transform(String modelType, String resourceType, String resourceContent, String responseType) throws IOException, InterruptedException {
+		
+		String initialModelDir = transformToHLVL(modelType, resourceType, resourceContent, responseType);
+		//parseHLVL();
+		
+		System.out.println("All parsers passed!");
+		
+		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent,responseType, initialModelDir);
 		String responseText = formatResult(responseType, jsonResult);
 		return responseText;
+	}
+	
+	private static void parseHLVL() throws InterruptedException, IOException {
+		CmdExecutor executor = new CmdExecutor("./");
+		List<String> params = new ArrayList<String>();
+		
+		//params.add("java -jar HLVLParser.jar "+HLVL_DIR+"/"+DEFAULT_NAME+".hlvl");
+		/*params.add("java");
+		params.add("-jar");
+		params.add("HLVLParser.jar");
+		params.add(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl");
+		*/
+		params.add("ls");
+		executor.setCommandInConsole(params);
+		executor.runCmd();
+	}
+	
+	private static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType) throws IOException {
+		String modelContent = getModelContent(resourceType, resourceContent);		
+
+		String currentDir = getCurrentDir(modelType);
+
+		verifyDirectory(BASE_DIR);
+
+		saveInputTempFile(currentDir, modelContent);
+
+		convertToHLVL(modelType, currentDir, modelContent);
+		
+		return currentDir;
 	}
 	
 	private static String formatResult(String responseType, JsonObject jsonResult) {
@@ -85,24 +117,31 @@ public class Transformation {
 		htmlPage += "    <p><pre>"+jsonResult.getString("sourceModel").replaceAll("<", "&lt;")+"</pre></p>\n";
 		htmlPage += "    <h3>HLVL:</h3>\n";
 		htmlPage += "    <p><pre>"+jsonResult.getString("hlvl").replaceAll("<", "&lt;")+"</pre></p>\n";
-		
+		/*
+		htmlPage += "    <h3>Basic Bool:</h3>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("basicBool").replaceAll("<", "&lt;")+"</pre></p>\n";
+		htmlPage += "    <h3>Basic Operations:</h3>\n";
+		htmlPage += "    <p><pre>"+jsonResult.getString("basicOps").replaceAll("<", "&lt;")+"</pre></p>\n";
+		*/
 		htmlPage += "  </body>\n</html>";
 		return htmlPage;
 	}
 
 	private static JsonObject buildJsonResult(String modelType, String resourceType, String resourceContent, String responseType,
-			String currentDir) throws IOException {
-System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
+		String currentDir) throws IOException {
+		//System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 		JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
 				  .add("modelType", modelType)
 				  .add("resourceType", resourceType)
 				  .add("resourceContent", resourceContent)
 				  .add("responseType", responseType)
 				  .add("sourceModel", localPathToString(currentDir+"/"+DEFAULT_NAME+".xml"))
-				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"));
+				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"))/*
+				  .add("basicBool", localPathToString(HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_BOOL))
+				  .add("basicOps", localPathToString(HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_OPS))*/;
 		
 		JsonObject jsonObject = objectBuilder.build();
-        System.out.println(jsonObject.toString());
+        //System.out.println(jsonObject.toString());
 		return jsonObject;
 	}
 	private static String getCurrentDir(String modelType) {
@@ -133,7 +172,6 @@ System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 	
 	public static void convertToHLVL(String modelType, String currentDir, String modelContent) throws IOException {
 		ParsingParameters params= new ParsingParameters();
-		params.setInputPath(new File(currentDir).getAbsolutePath());
 		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
 		params.setTargetName(DEFAULT_NAME);
 		
@@ -141,10 +179,12 @@ System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 		
 		switch(modelType) {
 			case VARXML:
+				params.setInputPath(new File(currentDir).getAbsolutePath());
 				parser = new VariamosXMLToHlvlParser(params);
 				((VariamosXMLToHlvlParser)parser).loadArrayLists();
 			break;
 			case SPLOT:
+				params.setInputPath(new File(currentDir).getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
 				parser = new Splot2HlvlParser(params);
 			break;
 		}
@@ -167,7 +207,7 @@ System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 		File currentFileDir = verifyDirectory(currentDir);
 		
 		File currentModelFile = new File(currentFileDir.getAbsolutePath()+"/"+DEFAULT_NAME+".xml");
-		System.out.println(currentModelFile.getAbsolutePath());
+		//System.out.println(currentModelFile.getAbsolutePath());
 		BufferedWriter bw = new BufferedWriter(new FileWriter(currentModelFile));
 		bw.write(modelContent);
 		bw.close();
