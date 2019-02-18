@@ -34,20 +34,32 @@ public class CoffeeServlet extends HttpServlet {
 	/** 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		printParameters(request.getParameterMap());		
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		
-		PrintWriter out = response.getWriter();
-		//out.print("Successfull Operation!");
-		
-		String modelType = request.getParameter("modelType");
-		String resourceType = request.getParameter("resourceType");
-		String resourceContent = request.getParameter("resourceContent");
-		String responseType = request.getParameter("responseType");
-		
-		String stringResponse = Transformation.transformToHLVL(modelType, resourceType, resourceContent, responseType);
-		out.print(stringResponse);
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			String modelType = request.getParameter("modelType");
+			String resourceType = request.getParameter("resourceType");
+			String resourceContent = request.getParameter("resourceContent");
+			String responseType = request.getParameter("responseType");
+			
+			String stringResponse = "HTTP PARAMS RECEIVED";
+			try {
+				stringResponse = Transformation.transform(modelType, resourceType, resourceContent, responseType);
+			} catch (InterruptedException e) {
+				stringResponse = e.getMessage();
+				e.printStackTrace();
+			} catch (IOException e) {
+				stringResponse = e.getMessage();
+				e.printStackTrace();
+			}
+			out.print(stringResponse);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void printParameters(Map<String, String[]> data) {
