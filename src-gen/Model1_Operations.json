@@ -1,5 +1,0 @@
-{
- "problem" : BASIC,
-"operationSingle" : [validModel,numberOfConfigurations],
-"validConfiguration" :[]
-}

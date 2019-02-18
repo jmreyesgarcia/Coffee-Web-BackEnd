@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
-import com.coffee.modelParsers.basicHLVLPackage.GroupType;
-import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
-import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
-import com.coffee.modelParsers.utils.FileUtils;
-import com.coffee.modelParsers.utils.ParsingParameters;
-
 import constraints.BooleanVariable;
 
 import constraints.PropositionalFormula;
@@ -20,6 +13,13 @@ import fm.FeatureTreeNode;
 import fm.RootNode;
 import fm.SolitaireFeature;
 import fm.XMLFeatureModel;
+import com.coffee.modelParsers.utils.FileUtils;
+import com.coffee.modelParsers.utils.ParsingParameters;
+import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
+import com.coffee.modelParsers.basicHLVLPackage.GroupType;
+import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
+import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
+import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicKeys;
 
 /**
  * This class parses splot models to HLVL.
@@ -87,11 +87,12 @@ public class Splot2HlvlParser implements IHlvlParser{
 			//traversing the feature tree for obtaining the feature and the hierarchical dependencies
 			traverseDFS(featureModel.getRoot(), 0);
 			
+			
 			traverseConstraints(featureModel);	
 			
 			// formating the output file
 			// including the Header
-			hlvlProgram.append(factory.getHeader(params.getTargetName()));
+			hlvlProgram.append(factory.getHeader(params.getTargetName()+"_generated"));
 			// including the elements
 			hlvlProgram.append(elements.toString());
 			//including the relations
