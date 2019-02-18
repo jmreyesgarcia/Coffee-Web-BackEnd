@@ -36,7 +36,7 @@ public class Transformation {
 	public final static String HTML = "HTML";
 	
 	private final static String BASE_DIR = "temp";
-	private final static String VARXML_DIR = BASE_DIR+"/model"; 
+	private final static String VARXML_DIR = BASE_DIR+"/varxml"; 
 	private final static String HLVL_DIR = BASE_DIR+"/hlvl";
 	private final static String SPLOT_DIR = BASE_DIR+"/splot";
 	
@@ -45,7 +45,7 @@ public class Transformation {
 	private final static String HLVL_PARSER_BASIC_OPS = "BasicFeatureModel_Operations.json";
 	
 	
-	private final static String DEFAULT_NAME = "model";
+	private final static String DEFAULT_NAME = "modelX";
 
 	
 	public static String transform(String modelType, String resourceType, String resourceContent, String responseType) throws IOException, InterruptedException {
