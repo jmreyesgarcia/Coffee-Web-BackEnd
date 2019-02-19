@@ -225,7 +225,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 	@Override
 	public void parse() throws Exception {
 		System.out.println("YA entro a transformar");
-		HlvlCode.append(converter.getHeader("basicFeatureModel"));
+		HlvlCode.append(converter.getHeader(params.getTargetName()+"_generated"));
 		converterXmlElementToHLVLCode();
 		converterXmlDependecyToHLVLCode();
 		writeFile();

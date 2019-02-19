@@ -1,7 +1,9 @@
 package com.coffee.common.commandExecutor;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.Executors;
 
@@ -60,12 +62,34 @@ public class CmdExecutor {
 		}*/
 	}
 	
-	public void runCmd() throws InterruptedException, IOException {
+	public int runCmd() throws InterruptedException, IOException {
 		Process process = processBuilder.start();
-		StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
-		Executors.newSingleThreadExecutor().submit(streamGobbler);
+		
+		//StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
+		//Executors.newSingleThreadExecutor().submit(streamGobbler);
 		int exitCode = process.waitFor();
-		assert exitCode == 0;
+        BufferedReader stdInput = new BufferedReader(new 
+                InputStreamReader(process.getInputStream()));
+        BufferedReader stdError = new BufferedReader(new 
+                InputStreamReader(process.getErrorStream()));		
+        
+        String line;
+        String inputStr = "";
+        String errStr = "";
+        while ((line = stdInput.readLine()) != null) {
+        	inputStr += line + "\n";
+        }
+        while ((line = stdError.readLine()) != null) {
+        	errStr += line + "\n";
+        }
+        
+        System.out.println(inputStr);
+        System.out.println(errStr);
+        
+		System.out.println("exitCode="+exitCode);
+		System.out.println("p.isAlive()="+process.isAlive());
+		//assert exitCode == 0;
+		return exitCode;
 	}
 
 }

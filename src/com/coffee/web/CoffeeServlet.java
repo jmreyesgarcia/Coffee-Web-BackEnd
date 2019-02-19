@@ -46,9 +46,13 @@ public class CoffeeServlet extends HttpServlet {
 			String resourceContent = request.getParameter("resourceContent");
 			String responseType = request.getParameter("responseType");
 			
-			String stringResponse = "HTTP PARAMS RECEIVED";
+			String stringResponse = "<br/>HTTP PARAMS RECEIVED";
+			String realRootPath = request.getServletContext().getRealPath("/");
+			String libDir = realRootPath+"/WEB-INF/lib";
+			String dataDir = realRootPath+"/WEB-INF";
+			
 			try {
-				stringResponse = Transformation.transform(modelType, resourceType, resourceContent, responseType);
+				stringResponse = Transformation.transform(modelType, resourceType, resourceContent, responseType, libDir, dataDir);
 			} catch (InterruptedException e) {
 				stringResponse = e.getMessage();
 				e.printStackTrace();
