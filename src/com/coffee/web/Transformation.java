@@ -36,55 +36,53 @@ public class Transformation {
 	public final static String HTML = "HTML";
 	
 	private final static String BASE_DIR = "temp";
-	private final static String VARXML_DIR = BASE_DIR+"/varxml"; 
-	private final static String HLVL_DIR = BASE_DIR+"/hlvl";
-	private final static String SPLOT_DIR = BASE_DIR+"/splot";
-	
-	private final static String HLVL_PARSER_BASE_DIR = "src-gen";
-	private final static String HLVL_PARSER_BASIC_BOOL = "BasicFeatureModel_bool.mzn";
-	private final static String HLVL_PARSER_BASIC_OPS = "BasicFeatureModel_Operations.json";
-	
+	private final static String VARXML_DIR = "varxml";
+	private final static String HLVL_DIR = "hlvl";
+	private final static String SPLOT_DIR = "splot";
 	
 	private final static String DEFAULT_NAME = "modelX";
-
 	
-	public static String transform(String modelType, String resourceType, String resourceContent, String responseType) throws IOException, InterruptedException {
+	private final static String HLVL_PARSER_BASE_DIR = "src-gen";
+	private final static String HLVL_PARSER_BASIC_BOOL = DEFAULT_NAME+"_generated_bool.mzn";
+	private final static String HLVL_PARSER_BASIC_OPS = DEFAULT_NAME+"_generated_Operations.json";
+	
+	public static String transform(String modelType, String resourceType, String resourceContent, String responseType, String libDirPath, String dataDirPath) throws IOException, InterruptedException {
 		
-		String initialModelDir = transformToHLVL(modelType, resourceType, resourceContent, responseType);
-		//parseHLVL();
+		String initialModelDir = transformToHLVL(modelType, resourceType, resourceContent, responseType, dataDirPath);
+		parseHLVL(libDirPath, dataDirPath);
 		
 		System.out.println("All parsers passed!");
 		
-		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent,responseType, initialModelDir);
+		JsonObject jsonResult = buildJsonResult(modelType, resourceType, resourceContent, responseType, initialModelDir, dataDirPath);
 		String responseText = formatResult(responseType, jsonResult);
 		return responseText;
 	}
 	
-	private static void parseHLVL() throws InterruptedException, IOException {
-		CmdExecutor executor = new CmdExecutor("./");
+	private static void parseHLVL(String libDirPath, String dataDirPath) throws InterruptedException, IOException {
+		CmdExecutor executor = new CmdExecutor(dataDirPath+"/"+BASE_DIR);
 		List<String> params = new ArrayList<String>();
 		
-		//params.add("java -jar HLVLParser.jar "+HLVL_DIR+"/"+DEFAULT_NAME+".hlvl");
-		/*params.add("java");
+		params.add("java"); 
 		params.add("-jar");
-		params.add("HLVLParser.jar");
+		params.add(libDirPath+"/HLVLParser.jar");
 		params.add(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl");
-		*/
-		params.add("ls");
+		
 		executor.setCommandInConsole(params);
 		executor.runCmd();
 	}
 	
-	private static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType) throws IOException {
-		String modelContent = getModelContent(resourceType, resourceContent);		
+	private static String transformToHLVL(String modelType, String resourceType, String resourceContent, String responseType, String dataDirPath) throws IOException {
+		String modelContent = getModelContent(resourceType, resourceContent);
 
-		String currentDir = getCurrentDir(modelType);
+		String currentDir = dataDirPath+"/"+getCurrentDir(modelType);
 
-		verifyDirectory(BASE_DIR);
+		verifyDirectory(dataDirPath+"/"+BASE_DIR);
 
 		saveInputTempFile(currentDir, modelContent);
 
-		convertToHLVL(modelType, currentDir, modelContent);
+		verifyDirectory(dataDirPath+"/"+BASE_DIR+"/"+HLVL_DIR);
+		
+		convertToHLVL(modelType, dataDirPath, currentDir, modelContent);
 		
 		return currentDir;
 	}
@@ -117,18 +115,17 @@ public class Transformation {
 		htmlPage += "    <p><pre>"+jsonResult.getString("sourceModel").replaceAll("<", "&lt;")+"</pre></p>\n";
 		htmlPage += "    <h3>HLVL:</h3>\n";
 		htmlPage += "    <p><pre>"+jsonResult.getString("hlvl").replaceAll("<", "&lt;")+"</pre></p>\n";
-		/*
 		htmlPage += "    <h3>Basic Bool:</h3>\n";
 		htmlPage += "    <p><pre>"+jsonResult.getString("basicBool").replaceAll("<", "&lt;")+"</pre></p>\n";
 		htmlPage += "    <h3>Basic Operations:</h3>\n";
 		htmlPage += "    <p><pre>"+jsonResult.getString("basicOps").replaceAll("<", "&lt;")+"</pre></p>\n";
-		*/
+
 		htmlPage += "  </body>\n</html>";
 		return htmlPage;
 	}
 
 	private static JsonObject buildJsonResult(String modelType, String resourceType, String resourceContent, String responseType,
-		String currentDir) throws IOException {
+		String currentDir, String dataDirPath) throws IOException {
 		//System.out.println("sourceModel: "+currentDir+"/"+DEFAULT_NAME+".xml");
 		JsonObjectBuilder objectBuilder = Json.createObjectBuilder()
 				  .add("modelType", modelType)
@@ -136,9 +133,9 @@ public class Transformation {
 				  .add("resourceContent", resourceContent)
 				  .add("responseType", responseType)
 				  .add("sourceModel", localPathToString(currentDir+"/"+DEFAULT_NAME+".xml"))
-				  .add("hlvl", localPathToString(HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"))/*
-				  .add("basicBool", localPathToString(HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_BOOL))
-				  .add("basicOps", localPathToString(HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_OPS))*/;
+				  .add("hlvl", localPathToString(dataDirPath+"/"+BASE_DIR+"/"+HLVL_DIR+"/"+DEFAULT_NAME+".hlvl"))
+				  .add("basicBool", localPathToString(dataDirPath+"/"+BASE_DIR+"/"+HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_BOOL))
+				  .add("basicOps", localPathToString(dataDirPath+"/"+BASE_DIR+"/"+HLVL_PARSER_BASE_DIR+"/"+HLVL_PARSER_BASIC_OPS));
 		
 		JsonObject jsonObject = objectBuilder.build();
         //System.out.println(jsonObject.toString());
@@ -148,10 +145,10 @@ public class Transformation {
 		String currentDir = "";
 		switch(modelType) {
 			case VARXML:
-				currentDir = VARXML_DIR;
+				currentDir = BASE_DIR+"/"+VARXML_DIR;
 				break;
 			case SPLOT:
-				currentDir = SPLOT_DIR;
+				currentDir = BASE_DIR+"/"+SPLOT_DIR;
 				break;
 		}
 		return currentDir;
@@ -170,9 +167,9 @@ public class Transformation {
 		return modelContent;
 	}
 	
-	public static void convertToHLVL(String modelType, String currentDir, String modelContent) throws IOException {
+	public static void convertToHLVL(String modelType, String dataDirPath, String currentDir, String modelContent) throws IOException {
 		ParsingParameters params= new ParsingParameters();
-		params.setOutputPath(new File(HLVL_DIR).getAbsolutePath());
+		params.setOutputPath(new File(dataDirPath+"/"+BASE_DIR+"/"+HLVL_DIR).getAbsolutePath());
 		params.setTargetName(DEFAULT_NAME);
 		
 		IHlvlParser parser = null;//ParserFactory.createParser(modelType,params);
@@ -210,10 +207,7 @@ public class Transformation {
 		//System.out.println(currentModelFile.getAbsolutePath());
 		BufferedWriter bw = new BufferedWriter(new FileWriter(currentModelFile));
 		bw.write(modelContent);
-		bw.close();
-		
-		File hlvlDir = new File(HLVL_DIR);
-		if(!hlvlDir.exists()) hlvlDir.mkdir();
+		bw.close();		
 	}
 	
 	private static String urlToString(URL url) throws IOException {		
