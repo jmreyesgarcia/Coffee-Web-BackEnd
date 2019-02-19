@@ -20,7 +20,7 @@ import com.coffee.common.commandExecutor.CmdExecutor;
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
 import com.coffee.modelParsers.splot2HLVL.Splot2HlvlParser;
 import com.coffee.modelParsers.utils.ParsingParameters;
-import com.coffee.modelParsers.xmlToHLVLParser.VariamosXMLToHlvlParser;
+import com.coffee.modelParsers.varXmlToHLVLParser.VariamosXMLToHlvlParser;
 
 /**
  * @author Juan Reyes <jmreyes@icesi.edu.co>
