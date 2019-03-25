@@ -1,0 +1,32 @@
+{
+    "exitCode":0,
+    "state":"SATISFIABLE",
+    "overAllTime":151,
+    "solutions":
+    [
+        {
+            "mobilePhone":1,
+            "hardware":1,
+            "videoCall":1,
+            "taskScheduler":0,
+            "games":0,
+            "connector3G":1,
+            "screen":1,
+            "processors":1,
+            "cpu":0,
+            "gpu":0,
+            "ram":1,
+            "gps":0,
+            "chess":0,
+            "carRace":0,
+            "tetris":0,
+            "videoCall_maxParConn":2,
+            "screen_resolution":3,
+            "ram_size":1,
+            "connector3G_speed":6,
+            "B0":true,
+            "solverTime":"0.13"
+        }
+    ],
+    "numberOfSolutions":1
+}

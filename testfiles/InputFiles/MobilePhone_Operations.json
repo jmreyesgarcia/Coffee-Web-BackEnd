@@ -1,0 +1,15 @@
+{
+ "problemType" : "INT_ATT",
+"operationSingle" : ["validModel","numberOfConfigurations"],
+"validConfiguration" :
+[
+	{
+	"element" : "DFS",
+	"value" : "true"
+	},
+	{
+	"element" : "mstprim",
+	"value" : "false"
+	}
+]
+}  

@@ -1,0 +1,2117 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    para_c(c(fzn_tokenizer)).
+    call0(('$picat_ensure_loaded',1),4).
+    last_call(1,('$picat_insert_loaded',1),c(fzn_parser),4).
+    return_det.
+label(('$damon_load',0,3)).
+    fail.
+label(('$damon_load',0,4)).
+    fail0.
+label(('$damon_load',0,5)).
+    cut_fail.
+label((fzn_parser__ds,4)).
+label((fzn_parser__ds,4,-1)).
+    allocate_det(4,52,([],0),4).
+label((fzn_parser__ds,4,1)).
+label((fzn_parser__ds,4,2)).
+    hash(4,0,0,(fzn_parser__ds,4,52)).
+    pred((fzn_parser__ds,4,2),4,48,(fzn_parser__ds,4,52)).
+    arglabel(c,int_list,(fzn_parser__ds,4,3)).
+    arglabel(c,nonempty_nafe_list,(fzn_parser__ds,4,4)).
+    arglabel(c,expect_list,(fzn_parser__ds,4,5)).
+    arglabel(c,pred_args,(fzn_parser__ds,4,6)).
+    arglabel(c,pred_arg_type,(fzn_parser__ds,4,7)).
+    arglabel(c,annotations_tail,(fzn_parser__ds,4,8)).
+    arglabel(c,read_flatzinc,(fzn_parser__ds,4,9)).
+    arglabel(c,non_array_flat_expr,(fzn_parser__ds,4,10)).
+    arglabel(c,array_literal,(fzn_parser__ds,4,11)).
+    arglabel(c,scalar_ti_expr_tail,(fzn_parser__ds,4,12)).
+    arglabel(c,constraint_elem,(fzn_parser__ds,4,13)).
+    arglabel(c,output_elem_list,(fzn_parser__ds,4,14)).
+    arglabel(c,nonempty_pred_args,(fzn_parser__ds,4,15)).
+    arglabel(c,sfe_list,(fzn_parser__ds,4,16)).
+    arglabel(c,nonempty_int_list,(fzn_parser__ds,4,17)).
+    arglabel(c,array_ranges,(fzn_parser__ds,4,18)).
+    arglabel(c,comma_separated_annotations,(fzn_parser__ds,4,19)).
+    arglabel(c,pred_decl,(fzn_parser__ds,4,20)).
+    arglabel(c,solve_annotations,(fzn_parser__ds,4,21)).
+    arglabel(c,nonempty_output_elem_list,(fzn_parser__ds,4,22)).
+    arglabel(c,ident_anns,(fzn_parser__ds,4,23)).
+    arglabel(c,annotation,(fzn_parser__ds,4,24)).
+    arglabel(c,nafe_list,(fzn_parser__ds,4,25)).
+    arglabel(c,flat_expr,(fzn_parser__ds,4,26)).
+    arglabel(c,variable_expr,(fzn_parser__ds,4,27)).
+    arglabel(c,nonempty_sfe_list,(fzn_parser__ds,4,28)).
+    arglabel(c,int_flat_expr,(fzn_parser__ds,4,29)).
+    arglabel(c,expr_list,(fzn_parser__ds,4,30)).
+    arglabel(c,output_elem,(fzn_parser__ds,4,31)).
+    arglabel(c,syntax_error,(fzn_parser__ds,4,32)).
+    arglabel(c,read_flatzinc_item,(fzn_parser__ds,4,33)).
+    arglabel(c,scalar_flat_expr,(fzn_parser__ds,4,34)).
+    arglabel(c,int_literal,(fzn_parser__ds,4,35)).
+    arglabel(c,float_literal,(fzn_parser__ds,4,36)).
+    arglabel(c,solve_kind,(fzn_parser__ds,4,37)).
+    arglabel(c,array_access_expr,(fzn_parser__ds,4,38)).
+    arglabel(c,array_decl_tail,(fzn_parser__ds,4,39)).
+    arglabel(c,solve_annotation,(fzn_parser__ds,4,40)).
+    arglabel(c,expect,(fzn_parser__ds,4,41)).
+    arglabel(c,set_literal,(fzn_parser__ds,4,42)).
+    arglabel(c,nonempty_expr_list,(fzn_parser__ds,4,43)).
+    arglabel(c,non_array_ti_expr_tail,(fzn_parser__ds,4,44)).
+    arglabel(c,int_index_expr,(fzn_parser__ds,4,45)).
+    arglabel(c,bool_literal,(fzn_parser__ds,4,46)).
+    arglabel(c,array_ranges_prime,(fzn_parser__ds,4,47)).
+    arglabel(c,pred_arg,(fzn_parser__ds,4,48)).
+    arglabel(c,item,(fzn_parser__ds,4,49)).
+    arglabel(c,'_$all',(fzn_parser__ds,4,50)).
+label((fzn_parser__ds,4,3)).
+    hash_jmpn_constant(c(int_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$int_list')).
+label((fzn_parser__ds,4,4)).
+    hash_jmpn_constant(c(nonempty_nafe_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_nafe_list')).
+label((fzn_parser__ds,4,5)).
+    hash_jmpn_constant(c(expect_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$expect_list')).
+label((fzn_parser__ds,4,6)).
+    hash_jmpn_constant(c(pred_args),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$pred_args')).
+label((fzn_parser__ds,4,7)).
+    hash_jmpn_constant(c(pred_arg_type),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$pred_arg_type')).
+label((fzn_parser__ds,4,8)).
+    hash_jmpn_constant(c(annotations_tail),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$annotations_tail')).
+label((fzn_parser__ds,4,9)).
+    hash_jmpn_constant(c(read_flatzinc),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(1),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$read_flatzinc')).
+label((fzn_parser__ds,4,10)).
+    hash_jmpn_constant(c(non_array_flat_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$non_array_flat_expr')).
+label((fzn_parser__ds,4,11)).
+    hash_jmpn_constant(c(array_literal),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$array_literal')).
+label((fzn_parser__ds,4,12)).
+    hash_jmpn_constant(c(scalar_ti_expr_tail),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$scalar_ti_expr_tail')).
+label((fzn_parser__ds,4,13)).
+    hash_jmpn_constant(c(constraint_elem),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$constraint_elem')).
+label((fzn_parser__ds,4,14)).
+    hash_jmpn_constant(c(output_elem_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$output_elem_list')).
+label((fzn_parser__ds,4,15)).
+    hash_jmpn_constant(c(nonempty_pred_args),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_pred_args')).
+label((fzn_parser__ds,4,16)).
+    hash_jmpn_constant(c(sfe_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$sfe_list')).
+label((fzn_parser__ds,4,17)).
+    hash_jmpn_constant(c(nonempty_int_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_int_list')).
+label((fzn_parser__ds,4,18)).
+    hash_jmpn_constant(c(array_ranges),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$array_ranges')).
+label((fzn_parser__ds,4,19)).
+    hash_jmpn_constant(c(comma_separated_annotations),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$comma_separated_annotations')).
+label((fzn_parser__ds,4,20)).
+    hash_jmpn_constant(c(pred_decl),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$pred_decl')).
+label((fzn_parser__ds,4,21)).
+    hash_jmpn_constant(c(solve_annotations),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$solve_annotations')).
+label((fzn_parser__ds,4,22)).
+    hash_jmpn_constant(c(nonempty_output_elem_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_output_elem_list')).
+label((fzn_parser__ds,4,23)).
+    hash_jmpn_constant(c(ident_anns),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$ident_anns')).
+label((fzn_parser__ds,4,24)).
+    hash_jmpn_constant(c(annotation),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$annotation')).
+label((fzn_parser__ds,4,25)).
+    hash_jmpn_constant(c(nafe_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nafe_list')).
+label((fzn_parser__ds,4,26)).
+    hash_jmpn_constant(c(flat_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$flat_expr')).
+label((fzn_parser__ds,4,27)).
+    hash_jmpn_constant(c(variable_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$variable_expr')).
+label((fzn_parser__ds,4,28)).
+    hash_jmpn_constant(c(nonempty_sfe_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_sfe_list')).
+label((fzn_parser__ds,4,29)).
+    hash_jmpn_constant(c(int_flat_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$int_flat_expr')).
+label((fzn_parser__ds,4,30)).
+    hash_jmpn_constant(c(expr_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$expr_list')).
+label((fzn_parser__ds,4,31)).
+    hash_jmpn_constant(c(output_elem),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$output_elem')).
+label((fzn_parser__ds,4,32)).
+    hash_jmpn_constant(c(syntax_error),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(2),(fzn_parser__ds,4,51),(fzn_parser__ds,4,51)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$syntax_error')).
+label((fzn_parser__ds,4,51)).
+    jmpn_eq_constant(4,c(syntax_error),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$syntax_error')).
+label((fzn_parser__ds,4,33)).
+    hash_jmpn_constant(c(read_flatzinc_item),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(1),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(func)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$f$$read_flatzinc_item')).
+label((fzn_parser__ds,4,34)).
+    hash_jmpn_constant(c(scalar_flat_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$scalar_flat_expr')).
+label((fzn_parser__ds,4,35)).
+    hash_jmpn_constant(c(int_literal),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$int_literal')).
+label((fzn_parser__ds,4,36)).
+    hash_jmpn_constant(c(float_literal),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$float_literal')).
+label((fzn_parser__ds,4,37)).
+    hash_jmpn_constant(c(solve_kind),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(4),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$solve_kind')).
+label((fzn_parser__ds,4,38)).
+    hash_jmpn_constant(c(array_access_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$array_access_expr')).
+label((fzn_parser__ds,4,39)).
+    hash_jmpn_constant(c(array_decl_tail),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(5),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$array_decl_tail')).
+label((fzn_parser__ds,4,40)).
+    hash_jmpn_constant(c(solve_annotation),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$solve_annotation')).
+label((fzn_parser__ds,4,41)).
+    hash_jmpn_constant(c(expect),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$expect')).
+label((fzn_parser__ds,4,42)).
+    hash_jmpn_constant(c(set_literal),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$set_literal')).
+label((fzn_parser__ds,4,43)).
+    hash_jmpn_constant(c(nonempty_expr_list),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$nonempty_expr_list')).
+label((fzn_parser__ds,4,44)).
+    hash_jmpn_constant(c(non_array_ti_expr_tail),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$non_array_ti_expr_tail')).
+label((fzn_parser__ds,4,45)).
+    hash_jmpn_constant(c(int_index_expr),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$int_index_expr')).
+label((fzn_parser__ds,4,46)).
+    hash_jmpn_constant(c(bool_literal),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$bool_literal')).
+label((fzn_parser__ds,4,47)).
+    hash_jmpn_constant(c(array_ranges_prime),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$array_ranges_prime')).
+label((fzn_parser__ds,4,48)).
+    hash_jmpn_constant(c(pred_arg),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$pred_arg')).
+label((fzn_parser__ds,4,49)).
+    hash_jmpn_constant(c(item),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(3),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$fzn_parser$$item')).
+label((fzn_parser__ds,4,50)).
+    hash_jmpn_constant(c('_$all'),(fzn_parser__ds,4,52)).
+    jmpn_eq_constant(3,c(100),(fzn_parser__ds,4,52),(fzn_parser__ds,4,52)).
+    unify_comp_list(1,48,v(-4),v(-5),v(-6),v(-7),v(-8),v(-9),v(-10),v(-11),v(-12),v(-13),v(-14),v(-15),v(-16),v(-17),v(-18),v(-19),v(-20),v(-21),v(-22),v(-23),v(-24),v(-25),v(-26),v(-27),v(-28),v(-29),v(-30),v(-31),v(-32),v(-33),v(-34),v(-35),v(-36),v(-37),v(-38),v(-39),v(-40),v(-41),v(-42),v(-43),v(-44),v(-45),v(-46),v(-47),v(-48),v(-49),v(-50),v(-51)).
+    unify_struct_arg_c(-51,(/,2),c(int_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-50,(/,2),c(nonempty_nafe_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-49,(/,2),c(expect_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-48,(/,2),c(pred_args)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-47,(/,2),c(pred_arg_type)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-46,(/,2),c(annotations_tail)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-45,(/,2),c(read_flatzinc)).
+    unify_arg_c(c(1)).
+    unify_struct_arg_c(-44,(/,2),c(non_array_flat_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-43,(/,2),c(array_literal)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-42,(/,2),c(scalar_ti_expr_tail)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-41,(/,2),c(constraint_elem)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-40,(/,2),c(output_elem_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-39,(/,2),c(nonempty_pred_args)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-38,(/,2),c(sfe_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-37,(/,2),c(nonempty_int_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-36,(/,2),c(array_ranges)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-35,(/,2),c(comma_separated_annotations)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-34,(/,2),c(pred_decl)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-33,(/,2),c(solve_annotations)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-32,(/,2),c(nonempty_output_elem_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-31,(/,2),c(ident_anns)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-30,(/,2),c(annotation)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-29,(/,2),c(nafe_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-28,(/,2),c(flat_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-27,(/,2),c(variable_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-26,(/,2),c(nonempty_sfe_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-25,(/,2),c(int_flat_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-24,(/,2),c(expr_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-23,(/,2),c(output_elem)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-22,(/,2),c(syntax_error)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-21,(/,2),c(read_flatzinc_item)).
+    unify_arg_c(c(1)).
+    unify_struct_arg_c(-20,(/,2),c(scalar_flat_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-19,(/,2),c(int_literal)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-18,(/,2),c(float_literal)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-17,(/,2),c(solve_kind)).
+    unify_arg_c(c(4)).
+    unify_struct_arg_c(-16,(/,2),c(array_access_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-15,(/,2),c(array_decl_tail)).
+    unify_arg_c(c(5)).
+    unify_struct_arg_c(-14,(/,2),c(solve_annotation)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-13,(/,2),c(syntax_error)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-12,(/,2),c(expect)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-11,(/,2),c(set_literal)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-10,(/,2),c(nonempty_expr_list)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-9,(/,2),c(non_array_ti_expr_tail)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-8,(/,2),c(int_index_expr)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-7,(/,2),c(bool_literal)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-6,(/,2),c(array_ranges_prime)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-5,(/,2),c(pred_arg)).
+    unify_arg_c(c(3)).
+    unify_struct_arg_c(-4,(/,2),c(item)).
+    unify_arg_c(c(3)).
+    return_det.
+label((fzn_parser__ds,4,52)).
+    fail.
+label((fzn_parser__ds,4,53)).
+    fail0.
+label((fzn_parser__ds,4,54)).
+    cut_fail.
+label(('e$$fzn_parser$$read_flatzinc',1)).
+label(('e$$fzn_parser$$read_flatzinc',1,-1)).
+    allocate_det(1,8,([],0),4).
+label(('e$$fzn_parser$$read_flatzinc',1,1)).
+    move_comp_list(-4,14,c('%'),c('%'),c(r),c(e),c(a),c(d),c(i),c(n),c(g),c(' '),c('%'),c(w),c('%'),c(n)).
+    para_uu(-4,1).
+    call0((picat_printf,2),5).
+    para_uc(1,c(read)).
+    para_v(-4).
+    call0((picat_open,3),5).
+    move_value(-5,-4).
+    para_v(-6).
+    para_u(-5).
+    call0(('e$$fzn_parser$$f$$read_flatzinc_item',2),7).
+    move_value(-7,-6).
+    para_uw(-7).
+    para_u(-5).
+    call0((w___fzn_parserread_flatzinc_1_1_1,3),8).
+    last_call(1,(close,1),u(-5),8).
+    return_det.
+label(('e$$fzn_parser$$read_flatzinc',1,3)).
+    fail.
+label(('e$$fzn_parser$$read_flatzinc',1,4)).
+    fail0.
+label(('e$$fzn_parser$$read_flatzinc',1,5)).
+    cut_fail.
+label((w___fzn_parserread_flatzinc_1_1_1,3)).
+label((w___fzn_parserread_flatzinc_1_1_1,3,-1)).
+    allocate_det(3,6,([],0),4).
+label((w___fzn_parserread_flatzinc_1_1_1,3,1)).
+    jmp_id_uc(3,c(end_of_file),(w___fzn_parserread_flatzinc_1_1_1,3,3)).
+    para_c(c(user)).
+    para_u(3).
+    call0((picat_write,2),4).
+    para_c(c(user)).
+    call0((nl,1),4).
+    para_v(-4).
+    para_u(1).
+    call0(('e$$fzn_parser$$f$$read_flatzinc_item',2),5).
+    move_value(-5,-4).
+    tr_det_call1_au((w___fzn_parserread_flatzinc_1_1_1,3,1),1,3,-5,2,1,6).
+    return_det.
+label((w___fzn_parserread_flatzinc_1_1_1,3,3)).
+    unify_value_return_det(2,3).
+    return_det.
+label((w___fzn_parserread_flatzinc_1_1_1,3,4)).
+    fail.
+label((w___fzn_parserread_flatzinc_1_1_1,3,5)).
+    fail0.
+label((w___fzn_parserread_flatzinc_1_1_1,3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2)).
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,-1)).
+    allocate_det(2,8,([],0),4).
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,1)).
+    para_vv(-4,-5).
+    para_u(1).
+    call0(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3),6).
+    jmp_var_y(-4,('e$$fzn_parser$$f$$read_flatzinc_item',2,2)).
+    para_v(-6).
+    para_uu(-5,2).
+    call0(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3),7).
+    jmp_var_y(-6,('e$$fzn_parser$$f$$read_flatzinc_item',2,4)).
+    return_det.
+    jmp(('e$$fzn_parser$$f$$read_flatzinc_item',2,5)).
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,4)).
+    move_comp_list(-7,19,c('S'),c(y),c(n),c(t),c(a),c(x),c(' '),c(e),c(r),c(r),c(o),c(r),c(' '),c(i),c(n),c(:),c(' '),c('%'),c(w)).
+    last_call(33,('e$$fzn_parser$$syntax_error',2),u(-7),u(-5),8).
+    return_det.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,5)).
+    return_det.
+    jmp(('e$$fzn_parser$$f$$read_flatzinc_item',2,3)).
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,2)).
+    move_vars(-7,-6).
+    unify_constant_return_det(2,c(end_of_file)).
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,3)).
+    return_det.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,7)).
+    move_struct0(-4,(read_flatzinc_item,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,9)).
+    fail.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,10)).
+    fail0.
+label(('e$$fzn_parser$$f$$read_flatzinc_item',2,11)).
+    cut_fail.
+label(('e$$fzn_parser$$item',3)).
+label(('e$$fzn_parser$$item',3,-1)).
+    allocate_nondet(3,20,([],0),9).
+label(('e$$fzn_parser$$item',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$item',3,1)).
+    switch_cons_910(2,('e$$fzn_parser$$item',3,5),('e$$fzn_parser$$item',3,5),('e$$fzn_parser$$item',3,5)).
+    jmpn_eq_constant(-9,c(var),('e$$fzn_parser$$item',3,5),('e$$fzn_parser$$item',3,5)).
+    cut0.
+    para_v(-9).
+    para_uv(-10,-11).
+    call0(('e$$fzn_parser$$non_array_ti_expr_tail',3),12).
+    para_cuv(c(:),-11,-10).
+    call0(('e$$fzn_parser$$expect',3),12).
+    para_v(-12).
+    para_uv(-10,-13).
+    call0(('e$$fzn_parser$$ident_anns',3),14).
+    move_cons(-14,c(=),v(-15)).
+    jmpn_unif(u(-13),u(-14),('e$$fzn_parser$$item',3,2)).
+    unify_struct(3,(=,2)).
+    unify_arg_v(-16).
+    unify_arg_v(-17).
+    unify_struct(-16,(:,2)).
+    unify_arg_v(-18).
+    unify_arg_u(-12).
+    unify_struct_arg_u(-18,(var,1),-9).
+    last_call(33,('e$$fzn_parser$$non_array_flat_expr',3),u(-17),u(-15),u(1),19).
+    return_det.
+    jmp(('e$$fzn_parser$$item',3,3)).
+label(('e$$fzn_parser$$item',3,2)).
+    move_vars(-18,-14).
+    unify_struct(3,(:,2)).
+    unify_arg_v(-19).
+    unify_arg_u(-12).
+    unify_struct_arg_u(-19,(var,1),-9).
+    unify_value_return_det(-13,1).
+    return_det.
+label(('e$$fzn_parser$$item',3,3)).
+    return_det.
+label(('e$$fzn_parser$$item',3,5)).
+    bp_fork(('e$$fzn_parser$$item',3,7)).
+    para_v(-9).
+    para_uv(2,-10).
+    call0(('e$$fzn_parser$$non_array_ti_expr_tail',3),11).
+    unify_cons(-10,c(:),v(-11)).
+    cut.
+    unify_struct(3,(=,2)).
+    unify_arg_v(-12).
+    unify_arg_v(-13).
+    unify_struct_arg_u(-12,(:,2),-9).
+    unify_arg_v(-14).
+    para_uuv(-14,-11,-15).
+    call0(('e$$fzn_parser$$ident_anns',3),16).
+    para_cuv(c(=),-15,-16).
+    call0(('e$$fzn_parser$$expect',3),17).
+    last_call(33,('e$$fzn_parser$$non_array_flat_expr',3),u(-13),u(-16),u(1),17).
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$item',3,7)).
+    switch_cons_910(2,('e$$fzn_parser$$item',3,25),('e$$fzn_parser$$item',3,25),('e$$fzn_parser$$item',3,25)).
+label(('e$$fzn_parser$$item',3,8)).
+    hash(-9,0,0,('e$$fzn_parser$$item',3,25)).
+    pred(('e$$fzn_parser$$item',3,8),-9,5,('e$$fzn_parser$$item',3,25)).
+    arglabel(c,array,('e$$fzn_parser$$item',3,9)).
+    arglabel(c,constraint,('e$$fzn_parser$$item',3,10)).
+    arglabel(c,solve,('e$$fzn_parser$$item',3,11)).
+    arglabel(c,output,('e$$fzn_parser$$item',3,12)).
+    arglabel(c,predicate,('e$$fzn_parser$$item',3,13)).
+label(('e$$fzn_parser$$item',3,9)).
+    hash_jmpn_constant(c(array),('e$$fzn_parser$$item',3,25)).
+    cut0.
+    move_struct0(-11,(i,1)).
+    build_arg_c(c(1)).
+    move_comp_list(-12,3,c('['),u(-11),c(..)).
+    para_uuv(-12,-10,-11).
+    call0(('e$$fzn_parser$$expect_list',3),13).
+    para_v(-12).
+    para_uv(-11,-13).
+    call0(('e$$fzn_parser$$int_literal',3),14).
+    move_comp_list(-14,2,c(']'),c(of)).
+    para_uuv(-14,-13,-15).
+    call0(('e$$fzn_parser$$expect_list',3),16).
+    move_struct(-16,(range,2)).
+    build_arg_c(c(1)).
+    build_arg_u(-12).
+    move_comp_list1(-17,u(-16)).
+    move_struct(-18,(array_of,2)).
+    build_arg_u(-17).
+    build_arg_v(-19).
+    last_call(344865,('e$$fzn_parser$$array_decl_tail',5),u(-18),u(-19),u(3),u(-15),u(1),20).
+    return_det.
+label(('e$$fzn_parser$$item',3,10)).
+    hash_jmpn_constant(c(constraint),('e$$fzn_parser$$item',3,25)).
+    cut0.
+    unify_struct_arg_v0(3,(constraint,1),-11).
+    para_v(-12).
+    para_uv(-10,-13).
+    call0(('e$$fzn_parser$$constraint_elem',3),14).
+    move_cons(-14,c(::),v(-15)).
+    jmpn_unif(u(-13),u(-14),('e$$fzn_parser$$item',3,15)).
+    unify_struct_arg_u(-11,(::,2),-12).
+    unify_arg_v(-16).
+    last_call(33,('e$$fzn_parser$$annotations_tail',3),u(-16),u(-15),u(1),17).
+    return_det.
+    jmp(('e$$fzn_parser$$item',3,16)).
+label(('e$$fzn_parser$$item',3,15)).
+    move_vars(-16,-14).
+    unify_value(-11,-12).
+    unify_value_return_det(-13,1).
+    return_det.
+label(('e$$fzn_parser$$item',3,16)).
+    return_det.
+label(('e$$fzn_parser$$item',3,11)).
+    hash_jmpn_constant(c(solve),('e$$fzn_parser$$item',3,25)).
+    cut0.
+    move_vars(-13,-11).
+    move_cons(-14,c(::),v(-15)).
+    jmpn_unif(u(-10),u(-14),('e$$fzn_parser$$item',3,18)).
+    unify_struct_arg_c(-11,(::,2),c(solve)).
+    unify_arg_u(-12).
+    para_uuu(-12,-15,-13).
+    call0(('e$$fzn_parser$$solve_annotations',3),16).
+    jmp(('e$$fzn_parser$$item',3,19)).
+label(('e$$fzn_parser$$item',3,18)).
+    move_vars(-15,-14).
+    unify_constant(-11,c(solve)).
+    unify_value(-10,-13).
+label(('e$$fzn_parser$$item',3,19)).
+    last_call(17185,('e$$fzn_parser$$solve_kind',4),u(-11),u(3),u(-13),u(1),16).
+    return_det.
+label(('e$$fzn_parser$$item',3,12)).
+    hash_jmpn_constant(c(output),('e$$fzn_parser$$item',3,25)).
+    cut0.
+    unify_struct_arg_v0(3,(output,1),-11).
+    para_cuv(c('['),-10,-12).
+    call0(('e$$fzn_parser$$expect',3),13).
+    last_call(33,('e$$fzn_parser$$nonempty_output_elem_list',3),u(-11),u(-12),u(1),13).
+    return_det.
+label(('e$$fzn_parser$$item',3,13)).
+    hash_jmpn_constant(c(predicate),('e$$fzn_parser$$item',3,25)).
+    cut0.
+    unify_struct_arg_v0(3,(predicate,1),3).
+    last_call(2,('e$$fzn_parser$$pred_decl',3),u(3),u(-10),u(1),11).
+    return_det.
+label(('e$$fzn_parser$$item',3,23)).
+    fail.
+label(('e$$fzn_parser$$item',3,24)).
+    fail0.
+label(('e$$fzn_parser$$item',3,25)).
+    cut_fail.
+label(('e$$fzn_parser$$array_decl_tail',5)).
+label(('e$$fzn_parser$$array_decl_tail',5,-1)).
+    allocate_det(5,12,([],0),4).
+label(('e$$fzn_parser$$array_decl_tail',5,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$array_decl_tail',5,5),('e$$fzn_parser$$array_decl_tail',5,5),('e$$fzn_parser$$array_decl_tail',5,5),-4,-5).
+    jmpn_eq_constant(-4,c(var),('e$$fzn_parser$$array_decl_tail',5,5),('e$$fzn_parser$$array_decl_tail',5,5)).
+    unify_struct_arg_v0(4,(var,1),-4).
+    para_uuv(-4,-5,-6).
+    call0(('e$$fzn_parser$$non_array_ti_expr_tail',3),7).
+    para_cuv(c(:),-6,-4).
+    call0(('e$$fzn_parser$$expect',3),7).
+    para_v(-5).
+    para_uv(-4,-7).
+    call0(('e$$fzn_parser$$ident_anns',3),8).
+    move_cons(-8,c(=),v(-9)).
+    jmpn_unif(u(-7),u(-8),('e$$fzn_parser$$array_decl_tail',5,2)).
+    unify_struct(3,(=,2)).
+    unify_arg_v(-10).
+    unify_arg_v(-11).
+    unify_struct_arg_2u(-10,(:,2),-5,5).
+    unify_arg_read_u(-5).
+    last_call(801,('e$$fzn_parser$$array_literal',3),u(-11),u(-9),u(1),12).
+    return_det.
+    jmp(('e$$fzn_parser$$array_decl_tail',5,3)).
+label(('e$$fzn_parser$$array_decl_tail',5,2)).
+    move_vars(-11,-8).
+    unify_struct_arg_2u(3,(:,2),-5,5).
+    unify_arg_read_u(-5).
+    unify_value_return_det(-7,1).
+    return_det.
+label(('e$$fzn_parser$$array_decl_tail',5,3)).
+    return_det.
+label(('e$$fzn_parser$$array_decl_tail',5,5)).
+    unify_struct_arg_2v0(3,(=,2),-4,-5).
+    unify_struct_arg_uv0(-4,(:,2),5,-4).
+    para_uuv(4,2,-6).
+    call0(('e$$fzn_parser$$non_array_ti_expr_tail',3),7).
+    unify_cons(-6,c(:),v(-7)).
+    para_uuv(-4,-7,-8).
+    call0(('e$$fzn_parser$$ident_anns',3),9).
+    para_cuv(c(=),-8,4).
+    call0(('e$$fzn_parser$$expect',3),9).
+    last_call(49,('e$$fzn_parser$$array_literal',3),u(-5),u(4),u(1),9).
+    return_det.
+label(('e$$fzn_parser$$array_decl_tail',5,7)).
+    fail.
+label(('e$$fzn_parser$$array_decl_tail',5,8)).
+    fail0.
+label(('e$$fzn_parser$$array_decl_tail',5,9)).
+    cut_fail.
+label(('e$$fzn_parser$$constraint_elem',3)).
+label(('e$$fzn_parser$$constraint_elem',3,-1)).
+    allocate_det(3,20,([],0),4).
+label(('e$$fzn_parser$$constraint_elem',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13),-6).
+    switch_cons_vv(-5,('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13),-7,-8).
+    jmpn_eq_constant(-7,c('('),('e$$fzn_parser$$constraint_elem',3,13),('e$$fzn_parser$$constraint_elem',3,13)).
+    para_v(-7).
+    para_uv(-8,-9).
+    call0(('e$$fzn_parser$$nonempty_expr_list',3),10).
+    move_var(-10).
+    move_var(-8).
+    builtin3(270,('e$$fzn_parser$$constraint_elem',3,2),u(-6),u(-7),v(-11)).
+    move_vars(-17,-12).
+    jmp(('e$$fzn_parser$$constraint_elem',3,3)).
+label(('e$$fzn_parser$$constraint_elem',3,2)).
+    move_var(-11).
+    jmpn_atom_y(-6,('e$$fzn_parser$$constraint_elem',3,4)).
+    move_cons(-12,u(-8),u(-10)).
+    jmpn_unif(u(-7),u(-12),('e$$fzn_parser$$constraint_elem',3,4)).
+    move_cons(-13,u(-6),u(-7)).
+    builtin2(206,('e$$fzn_parser$$constraint_elem',3,15),u(-11),u(-13)).
+    move_vars(-17,-14).
+    jmp(('e$$fzn_parser$$constraint_elem',3,5)).
+label(('e$$fzn_parser$$constraint_elem',3,4)).
+    move_vars(-13,-12).
+    jmpn_atom_y(-6,('e$$fzn_parser$$constraint_elem',3,6)).
+    jmpn_int_y(-7,('e$$fzn_parser$$constraint_elem',3,8)).
+    jmpn_gt_ui(-7,0,('e$$fzn_parser$$constraint_elem',3,8)).
+    para_u(-7).
+    call0((garbage_collect,1),14).
+    functor(u(-11),u(-6),u(-7)).
+    move_vars(-15,-14).
+    jmp(('e$$fzn_parser$$constraint_elem',3,9)).
+label(('e$$fzn_parser$$constraint_elem',3,8)).
+    move_struct(-14,(invalid_argument,1)).
+    build_arg_u(-7).
+    move_struct(-15,(new_struct,2)).
+    build_arg_2u(-6,-7).
+    para_uu(-14,-15).
+    call0((handle_exception,2),16).
+label(('e$$fzn_parser$$constraint_elem',3,9)).
+    move_vars(-17,-16).
+    jmp(('e$$fzn_parser$$constraint_elem',3,7)).
+label(('e$$fzn_parser$$constraint_elem',3,6)).
+    move_vars(-15,-14).
+    move_struct(-16,(atom_expected,1)).
+    build_arg_u(-6).
+    move_struct(-17,(new_struct,2)).
+    build_arg_2u(-6,-7).
+    para_uu(-16,-17).
+    call0((handle_exception,2),18).
+label(('e$$fzn_parser$$constraint_elem',3,7)).
+label(('e$$fzn_parser$$constraint_elem',3,5)).
+label(('e$$fzn_parser$$constraint_elem',3,3)).
+    unify_value(3,-11).
+    para_v(-18).
+    para_u(3).
+    call0(('de$$fzn_parser$$constraint_elem_3_0__1',2),19).
+    jmp_var_y(-18,('e$$fzn_parser$$constraint_elem',3,10)).
+    unify_value(-9,1).
+    move_comp_list(-19,27,c('I'),c(l),c(l),c(e),c(g),c(a),c(l),c(' '),c(c),c(o),c(n),c(s),c(t),c(r),c(a),c(i),c(n),c(t),c(' '),c(n),c(a),c(m),c(e),c(:),c(' '),c('%'),c(w)).
+    last_call(33,('e$$fzn_parser$$syntax_error',2),u(-19),u(3),20).
+    return_det.
+    jmp(('e$$fzn_parser$$constraint_elem',3,11)).
+label(('e$$fzn_parser$$constraint_elem',3,10)).
+    move_var(-19).
+    unify_value_return_det(-9,1).
+    return_det.
+label(('e$$fzn_parser$$constraint_elem',3,11)).
+    return_det.
+label(('e$$fzn_parser$$constraint_elem',3,13)).
+    last_call0(('e$$fzn_parser$$variable_expr',3),4).
+    return_det.
+label(('e$$fzn_parser$$constraint_elem',3,15)).
+    fail.
+label(('e$$fzn_parser$$constraint_elem',3,16)).
+    fail0.
+label(('e$$fzn_parser$$constraint_elem',3,17)).
+    cut_fail.
+label(('e$$fzn_parser$$solve_kind',4)).
+label(('e$$fzn_parser$$solve_kind',4,-1)).
+    allocate_det(4,7,([],0),4).
+label(('e$$fzn_parser$$solve_kind',4,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$solve_kind',4,8),('e$$fzn_parser$$solve_kind',4,8),('e$$fzn_parser$$solve_kind',4,8),-4,-5).
+label(('e$$fzn_parser$$solve_kind',4,2)).
+    hash(-4,0,0,('e$$fzn_parser$$solve_kind',4,8)).
+    pred(('e$$fzn_parser$$solve_kind',4,2),-4,3,('e$$fzn_parser$$solve_kind',4,8)).
+    arglabel(c,satisfy,('e$$fzn_parser$$solve_kind',4,3)).
+    arglabel(c,minimize,('e$$fzn_parser$$solve_kind',4,4)).
+    arglabel(c,maximize,('e$$fzn_parser$$solve_kind',4,5)).
+label(('e$$fzn_parser$$solve_kind',4,3)).
+    hash_jmpn_constant(c(satisfy),('e$$fzn_parser$$solve_kind',4,8)).
+    unify_struct_arg_u(3,(satisfy,1),4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$solve_kind',4,4)).
+    hash_jmpn_constant(c(minimize),('e$$fzn_parser$$solve_kind',4,8)).
+    unify_struct_arg_uv0(3,(minimize,2),4,-6).
+    last_call(801,('e$$fzn_parser$$variable_expr',3),u(-6),u(-5),u(1),7).
+    return_det.
+label(('e$$fzn_parser$$solve_kind',4,5)).
+    hash_jmpn_constant(c(maximize),('e$$fzn_parser$$solve_kind',4,8)).
+    unify_struct_arg_uv0(3,(maximize,2),4,-4).
+    last_call(801,('e$$fzn_parser$$variable_expr',3),u(-4),u(-5),u(1),6).
+    return_det.
+label(('e$$fzn_parser$$solve_kind',4,8)).
+    fail.
+label(('e$$fzn_parser$$solve_kind',4,9)).
+    fail0.
+label(('e$$fzn_parser$$solve_kind',4,10)).
+    cut_fail.
+label(('e$$fzn_parser$$output_elem',3)).
+label(('e$$fzn_parser$$output_elem',3,-1)).
+    allocate_det(3,15,([],0),4).
+label(('e$$fzn_parser$$output_elem',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$output_elem',3,8),('e$$fzn_parser$$output_elem',3,8),('e$$fzn_parser$$output_elem',3,8),-4,-5).
+label(('e$$fzn_parser$$output_elem',3,2)).
+    hash(-4,0,0,('e$$fzn_parser$$output_elem',3,8)).
+    pred(('e$$fzn_parser$$output_elem',3,2),-4,3,('e$$fzn_parser$$output_elem',3,8)).
+    arglabel(c,show,('e$$fzn_parser$$output_elem',3,3)).
+    arglabel(c,show_cond,('e$$fzn_parser$$output_elem',3,4)).
+    arglabel(s,(str,1),('e$$fzn_parser$$output_elem',3,5)).
+label(('e$$fzn_parser$$output_elem',3,3)).
+    hash_jmpn_constant(c(show),('e$$fzn_parser$$output_elem',3,8)).
+    unify_struct_arg_v0(3,(show,1),-6).
+    para_cuv(c('('),-5,-7).
+    call0(('e$$fzn_parser$$expect',3),8).
+    para_uuv(-6,-7,-8).
+    call0(('e$$fzn_parser$$flat_expr',3),9).
+    last_call(33,('e$$fzn_parser$$expect',3),c(')'),u(-8),u(1),9).
+    return_det.
+label(('e$$fzn_parser$$output_elem',3,4)).
+    hash_jmpn_constant(c(show_cond),('e$$fzn_parser$$output_elem',3,8)).
+    unify_struct_arg_2v0(3,(show_cond,3),-6,-7).
+    unify_arg_v0(-8).
+    para_cuv(c('('),-5,-9).
+    call0(('e$$fzn_parser$$expect',3),10).
+    para_uuv(-6,-9,-10).
+    call0(('e$$fzn_parser$$flat_expr',3),11).
+    para_cuv(c(','),-10,-11).
+    call0(('e$$fzn_parser$$expect',3),12).
+    para_uuv(-7,-11,-12).
+    call0(('e$$fzn_parser$$flat_expr',3),13).
+    para_cuv(c(','),-12,-13).
+    call0(('e$$fzn_parser$$expect',3),14).
+    para_uuv(-8,-13,-14).
+    call0(('e$$fzn_parser$$flat_expr',3),15).
+    last_call(33,('e$$fzn_parser$$expect',3),c(')'),u(-14),u(1),15).
+    return_det.
+label(('e$$fzn_parser$$output_elem',3,5)).
+    hash_jmpn_struct((str,1),('e$$fzn_parser$$output_elem',3,8)).
+    fetch_v(-4).
+    jmpn_id_uu(3,-4,('e$$fzn_parser$$output_elem',3,8)).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$output_elem',3,8)).
+    fail.
+label(('e$$fzn_parser$$output_elem',3,9)).
+    fail0.
+label(('e$$fzn_parser$$output_elem',3,10)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_output_elem_list',3)).
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$output_elem',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_output_elem_list',3,2)).
+    last_call(2,('e$$fzn_parser$$output_elem_list',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_output_elem_list',3,3)).
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,2)).
+    move_var(-6).
+    para_c(c(']')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_output_elem_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$output_elem_list',3)).
+label(('e$$fzn_parser$$output_elem_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$output_elem_list',3,1)).
+    move_cons(-4,c(']'),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$output_elem_list',3,2)).
+    unify_nil(3).
+    unify_value_return_det(-5,1).
+    return_det.
+    jmp(('e$$fzn_parser$$output_elem_list',3,3)).
+label(('e$$fzn_parser$$output_elem_list',3,2)).
+    move_vars(-5,-4).
+    last_call0(('e$$fzn_parser$$nonempty_output_elem_list',3),6).
+    return_det.
+label(('e$$fzn_parser$$output_elem_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$output_elem_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$output_elem_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$output_elem_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$pred_decl',3)).
+label(('e$$fzn_parser$$pred_decl',3,-1)).
+    allocate_det(3,15,([],0),4).
+label(('e$$fzn_parser$$pred_decl',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10),-4).
+    switch_cons_vv(-5,('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10),-5,-6).
+    jmpn_eq_constant(-5,c('('),('e$$fzn_parser$$pred_decl',3,10),('e$$fzn_parser$$pred_decl',3,10)).
+    para_v(-5).
+    para_uu(-6,1).
+    call0(('e$$fzn_parser$$nonempty_pred_args',3),7).
+    move_vars(-7,-6).
+    builtin3(270,('e$$fzn_parser$$pred_decl',3,2),u(-4),u(-5),v(-8)).
+    move_vars(-14,-9).
+    jmp(('e$$fzn_parser$$pred_decl',3,3)).
+label(('e$$fzn_parser$$pred_decl',3,2)).
+    move_var(-8).
+    jmpn_atom_y(-4,('e$$fzn_parser$$pred_decl',3,4)).
+    move_cons(-9,u(-6),u(-7)).
+    jmpn_unif(u(-5),u(-9),('e$$fzn_parser$$pred_decl',3,4)).
+    move_cons(-10,u(-4),u(-5)).
+    builtin2(206,('e$$fzn_parser$$pred_decl',3,10),u(-8),u(-10)).
+    move_vars(-14,-11).
+    jmp(('e$$fzn_parser$$pred_decl',3,5)).
+label(('e$$fzn_parser$$pred_decl',3,4)).
+    move_vars(-10,-9).
+    jmpn_atom_y(-4,('e$$fzn_parser$$pred_decl',3,6)).
+    jmpn_int_y(-5,('e$$fzn_parser$$pred_decl',3,8)).
+    jmpn_gt_ui(-5,0,('e$$fzn_parser$$pred_decl',3,8)).
+    para_u(-5).
+    call0((garbage_collect,1),11).
+    functor(u(-8),u(-4),u(-5)).
+    move_vars(-12,-11).
+    jmp(('e$$fzn_parser$$pred_decl',3,9)).
+label(('e$$fzn_parser$$pred_decl',3,8)).
+    move_struct(-11,(invalid_argument,1)).
+    build_arg_u(-5).
+    move_struct(-12,(new_struct,2)).
+    build_arg_2u(-4,-5).
+    para_uu(-11,-12).
+    call0((handle_exception,2),13).
+label(('e$$fzn_parser$$pred_decl',3,9)).
+    move_vars(-14,-13).
+    jmp(('e$$fzn_parser$$pred_decl',3,7)).
+label(('e$$fzn_parser$$pred_decl',3,6)).
+    move_vars(-12,-11).
+    move_struct(-13,(atom_expected,1)).
+    build_arg_u(-4).
+    move_struct(-14,(new_struct,2)).
+    build_arg_2u(-4,-5).
+    para_uu(-13,-14).
+    call0((handle_exception,2),15).
+label(('e$$fzn_parser$$pred_decl',3,7)).
+label(('e$$fzn_parser$$pred_decl',3,5)).
+label(('e$$fzn_parser$$pred_decl',3,3)).
+    unify_value_return_det(3,-8).
+    return_det.
+label(('e$$fzn_parser$$pred_decl',3,10)).
+    fail.
+label(('e$$fzn_parser$$pred_decl',3,11)).
+    fail0.
+label(('e$$fzn_parser$$pred_decl',3,12)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_pred_args',3)).
+label(('e$$fzn_parser$$nonempty_pred_args',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_pred_args',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$pred_arg',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_pred_args',3,2)).
+    last_call(2,('e$$fzn_parser$$pred_args',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_pred_args',3,3)).
+label(('e$$fzn_parser$$nonempty_pred_args',3,2)).
+    move_var(-6).
+    para_c(c(')')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_pred_args',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_pred_args',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_pred_args',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_pred_args',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$pred_args',3)).
+label(('e$$fzn_parser$$pred_args',3,-1)).
+    allocate_det(3,5,([],0),4).
+label(('e$$fzn_parser$$pred_args',3,1)).
+    move_cons(-4,c(')'),u(1)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$pred_args',3,2)).
+    unify_nil(3).
+    return_det.
+    jmp(('e$$fzn_parser$$pred_args',3,3)).
+label(('e$$fzn_parser$$pred_args',3,2)).
+    move_var(-4).
+    last_call0(('e$$fzn_parser$$nonempty_pred_args',3),5).
+    return_det.
+label(('e$$fzn_parser$$pred_args',3,3)).
+    return_det.
+label(('e$$fzn_parser$$pred_args',3,5)).
+    fail.
+label(('e$$fzn_parser$$pred_args',3,6)).
+    fail0.
+label(('e$$fzn_parser$$pred_args',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$pred_arg',3)).
+label(('e$$fzn_parser$$pred_arg',3,-1)).
+    allocate_det(3,10,([],0),4).
+label(('e$$fzn_parser$$pred_arg',3,1)).
+    para_v(-4).
+    para_uv(2,-5).
+    call0(('e$$fzn_parser$$pred_arg_type',3),6).
+    move_cons(-6,c(:),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$pred_arg',3,2)).
+    unify_struct_arg_u(3,(:,2),-4).
+    unify_arg_v(-8).
+    unify_cons(-7,v(-9),u(1)).
+    unify_struct_arg_u(-9,(ident,1),-8).
+    return_det.
+    jmp(('e$$fzn_parser$$pred_arg',3,3)).
+label(('e$$fzn_parser$$pred_arg',3,2)).
+    move_vars(-9,-6).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$pred_arg',3,3)).
+    return_det.
+label(('e$$fzn_parser$$pred_arg',3,4)).
+    fail.
+label(('e$$fzn_parser$$pred_arg',3,5)).
+    fail0.
+label(('e$$fzn_parser$$pred_arg',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$pred_arg_type',3)).
+label(('e$$fzn_parser$$pred_arg_type',3,-1)).
+    allocate_nondet(3,17,([],0),9).
+label(('e$$fzn_parser$$pred_arg_type',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$pred_arg_type',3,1)).
+    switch_cons_910(2,('e$$fzn_parser$$pred_arg_type',3,3),('e$$fzn_parser$$pred_arg_type',3,3),('e$$fzn_parser$$pred_arg_type',3,3)).
+    jmpn_eq_constant(-9,c(var),('e$$fzn_parser$$pred_arg_type',3,3),('e$$fzn_parser$$pred_arg_type',3,3)).
+    cut0.
+    unify_struct_arg_v0(3,(var,1),-9).
+    last_call(33,('e$$fzn_parser$$non_array_ti_expr_tail',3),u(-9),u(-10),u(1),11).
+    return_det.
+label(('e$$fzn_parser$$pred_arg_type',3,3)).
+    bp_fork(('e$$fzn_parser$$pred_arg_type',3,4)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$non_array_ti_expr_tail',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$pred_arg_type',3,4)).
+    switch_cons_910(2,('e$$fzn_parser$$pred_arg_type',3,10),('e$$fzn_parser$$pred_arg_type',3,10),('e$$fzn_parser$$pred_arg_type',3,10)).
+    jmpn_eq_constant(-9,c(array),('e$$fzn_parser$$pred_arg_type',3,10),('e$$fzn_parser$$pred_arg_type',3,10)).
+    cut0.
+    unify_struct_arg_2v0(3,(array_of,2),-9,-11).
+    para_cuv(c('['),-10,-12).
+    call0(('e$$fzn_parser$$expect',3),13).
+    para_uuv(-9,-12,-10).
+    call0(('e$$fzn_parser$$array_ranges',3),13).
+    move_comp_list(-13,2,c(']'),c(of)).
+    para_uuv(-13,-10,-14).
+    call0(('e$$fzn_parser$$expect_list',3),15).
+    move_var(3).
+    move_cons(-15,c(var),v(-16)).
+    jmpn_unif(u(-14),u(-15),('e$$fzn_parser$$pred_arg_type',3,5)).
+    unify_struct_arg_u(-11,(var,1),3).
+    jmp(('e$$fzn_parser$$pred_arg_type',3,6)).
+label(('e$$fzn_parser$$pred_arg_type',3,5)).
+    move_vars(-16,-15).
+    unify_value(-14,-16).
+    unify_value(-11,3).
+label(('e$$fzn_parser$$pred_arg_type',3,6)).
+    last_call(2,('e$$fzn_parser$$non_array_ti_expr_tail',3),u(3),u(-16),u(1),17).
+    return_det.
+label(('e$$fzn_parser$$pred_arg_type',3,8)).
+    fail.
+label(('e$$fzn_parser$$pred_arg_type',3,9)).
+    fail0.
+label(('e$$fzn_parser$$pred_arg_type',3,10)).
+    cut_fail.
+label(('e$$fzn_parser$$array_ranges',3)).
+label(('e$$fzn_parser$$array_ranges',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$array_ranges',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7),-4,-5).
+label(('e$$fzn_parser$$array_ranges',3,2)).
+    hash(-4,0,0,('e$$fzn_parser$$array_ranges',3,7)).
+    pred(('e$$fzn_parser$$array_ranges',3,2),-4,2,('e$$fzn_parser$$array_ranges',3,7)).
+    arglabel(c,int,('e$$fzn_parser$$array_ranges',3,3)).
+    arglabel(s,(i,1),('e$$fzn_parser$$array_ranges',3,4)).
+label(('e$$fzn_parser$$array_ranges',3,3)).
+    hash_jmpn_constant(c(int),('e$$fzn_parser$$array_ranges',3,7)).
+    unify_cons_cv0(3,c(int),-6).
+    last_call(33,('e$$fzn_parser$$array_ranges_prime',3),u(-6),u(-5),u(1),7).
+    return_det.
+label(('e$$fzn_parser$$array_ranges',3,4)).
+    hash_jmpn_struct((i,1),('e$$fzn_parser$$array_ranges',3,7)).
+    fetch_v(-4).
+    jmpn_eq_constant(-4,c(1),('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7)).
+    switch_cons_vv(-5,('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7),-5,-4).
+    jmpn_eq_constant(-5,c(..),('e$$fzn_parser$$array_ranges',3,7),('e$$fzn_parser$$array_ranges',3,7)).
+    unify_cons_v0(3,-5).
+    unify_struct_arg_c(-5,(range,2),c(1)).
+    unify_arg_v0(-5).
+    para_uuv(-5,-4,-6).
+    call0(('e$$fzn_parser$$int_literal',3),7).
+    last_call(2,('e$$fzn_parser$$array_ranges_prime',3),u(3),u(-6),u(1),7).
+    return_det.
+label(('e$$fzn_parser$$array_ranges',3,7)).
+    fail.
+label(('e$$fzn_parser$$array_ranges',3,8)).
+    fail0.
+label(('e$$fzn_parser$$array_ranges',3,9)).
+    cut_fail.
+label(('e$$fzn_parser$$array_ranges_prime',3)).
+label(('e$$fzn_parser$$array_ranges_prime',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$array_ranges_prime',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$array_ranges_prime',3,3),('e$$fzn_parser$$array_ranges_prime',3,3),('e$$fzn_parser$$array_ranges_prime',3,3),-4,-5).
+    jmpn_eq_constant(-4,c(','),('e$$fzn_parser$$array_ranges_prime',3,3),('e$$fzn_parser$$array_ranges_prime',3,3)).
+    last_call(2,('e$$fzn_parser$$array_ranges',3),u(3),u(-5),u(1),6).
+    return_det.
+label(('e$$fzn_parser$$array_ranges_prime',3,3)).
+    unify_nil(3).
+    unify_value_return_det(2,1).
+    return_det.
+label(('e$$fzn_parser$$array_ranges_prime',3,4)).
+    fail.
+label(('e$$fzn_parser$$array_ranges_prime',3,5)).
+    fail0.
+label(('e$$fzn_parser$$array_ranges_prime',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3)).
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,-1)).
+    allocate_det(3,8,([],0),4).
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,1)).
+    move_cons(-4,c(set),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$non_array_ti_expr_tail',3,2)).
+    unify_struct_arg_v0(3,(set_of,1),-6).
+    para_cuv(c(of),-5,-7).
+    call0(('e$$fzn_parser$$expect',3),8).
+    last_call(33,('e$$fzn_parser$$scalar_ti_expr_tail',3),u(-6),u(-7),u(1),8).
+    return_det.
+    jmp(('e$$fzn_parser$$non_array_ti_expr_tail',3,3)).
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,2)).
+    move_vars(-7,-4).
+    last_call0(('e$$fzn_parser$$scalar_ti_expr_tail',3),8).
+    return_det.
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,3)).
+    return_det.
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,6)).
+    fail.
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,7)).
+    fail0.
+label(('e$$fzn_parser$$non_array_ti_expr_tail',3,8)).
+    cut_fail.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3)).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,-1)).
+    allocate_nondet(3,13,([],0),9).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,1)).
+    switch_cons_910(2,('e$$fzn_parser$$scalar_ti_expr_tail',3,8),('e$$fzn_parser$$scalar_ti_expr_tail',3,8),('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,2)).
+    hash(-9,0,0,('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    pred(('e$$fzn_parser$$scalar_ti_expr_tail',3,2),-9,4,('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    arglabel(c,bool,('e$$fzn_parser$$scalar_ti_expr_tail',3,3)).
+    arglabel(c,int,('e$$fzn_parser$$scalar_ti_expr_tail',3,4)).
+    arglabel(c,float,('e$$fzn_parser$$scalar_ti_expr_tail',3,5)).
+    arglabel(c,'{',('e$$fzn_parser$$scalar_ti_expr_tail',3,6)).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,3)).
+    hash_jmpn_constant(c(bool),('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    cut0.
+    unify_constant(3,c(bool)).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,4)).
+    hash_jmpn_constant(c(int),('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    cut0.
+    unify_constant(3,c(int)).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,5)).
+    hash_jmpn_constant(c(float),('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    cut0.
+    unify_constant(3,c(float)).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,6)).
+    hash_jmpn_constant(c('{'),('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    cut0.
+    unify_struct_arg_v0(3,({},1),-9).
+    last_call(33,('e$$fzn_parser$$nonempty_int_list',3),u(-9),u(-10),u(1),11).
+    return_det.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,8)).
+    bp_fork(('e$$fzn_parser$$scalar_ti_expr_tail',3,10)).
+    para_v(-9).
+    para_uv(2,-10).
+    call0(('e$$fzn_parser$$int_literal',3),11).
+    cut.
+    unify_struct_arg_u(3,(range,2),-9).
+    unify_arg_v(-11).
+    para_cuv(c(..),-10,-12).
+    call0(('e$$fzn_parser$$expect',3),13).
+    last_call(33,('e$$fzn_parser$$int_literal',3),u(-11),u(-12),u(1),13).
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,10)).
+    bp_fork(('e$$fzn_parser$$scalar_ti_expr_tail',3,14)).
+    para_v(-9).
+    para_uv(2,-10).
+    call0(('e$$fzn_parser$$float_literal',3),11).
+    cut.
+    unify_struct_arg_u(3,(range,2),-9).
+    unify_arg_v(-11).
+    para_cuv(c(..),-10,-12).
+    call0(('e$$fzn_parser$$expect',3),13).
+    last_call(33,('e$$fzn_parser$$float_literal',3),u(-11),u(-12),u(1),13).
+    return_det.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,12)).
+    fail.
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,13)).
+    fail0.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_ti_expr_tail',3,14)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_int_list',3)).
+label(('e$$fzn_parser$$nonempty_int_list',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_int_list',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$int_literal',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_int_list',3,2)).
+    last_call(2,('e$$fzn_parser$$int_list',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_int_list',3,3)).
+label(('e$$fzn_parser$$nonempty_int_list',3,2)).
+    move_var(-6).
+    para_c(c('}')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_int_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_int_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_int_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_int_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$int_list',3)).
+label(('e$$fzn_parser$$int_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$int_list',3,1)).
+    move_cons(-4,c('}'),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$int_list',3,2)).
+    unify_nil(3).
+    unify_value_return_det(-5,1).
+    return_det.
+    jmp(('e$$fzn_parser$$int_list',3,3)).
+label(('e$$fzn_parser$$int_list',3,2)).
+    move_vars(-5,-4).
+    last_call0(('e$$fzn_parser$$nonempty_int_list',3),6).
+    return_det.
+label(('e$$fzn_parser$$int_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$int_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$int_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$int_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$flat_expr',3)).
+label(('e$$fzn_parser$$flat_expr',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('e$$fzn_parser$$flat_expr',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$flat_expr',3,1)).
+    bp_fork(('e$$fzn_parser$$flat_expr',3,2)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$non_array_flat_expr',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$flat_expr',3,2)).
+    cut0.
+    last_call0(('e$$fzn_parser$$array_literal',3),9).
+    return_det.
+label(('e$$fzn_parser$$flat_expr',3,4)).
+    fail.
+label(('e$$fzn_parser$$flat_expr',3,5)).
+    fail0.
+label(('e$$fzn_parser$$flat_expr',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$non_array_flat_expr',3)).
+label(('e$$fzn_parser$$non_array_flat_expr',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('e$$fzn_parser$$non_array_flat_expr',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$non_array_flat_expr',3,1)).
+    bp_fork(('e$$fzn_parser$$non_array_flat_expr',3,2)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$set_literal',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$non_array_flat_expr',3,2)).
+    cut0.
+    last_call0(('e$$fzn_parser$$scalar_flat_expr',3),9).
+    return_det.
+label(('e$$fzn_parser$$non_array_flat_expr',3,4)).
+    fail.
+label(('e$$fzn_parser$$non_array_flat_expr',3,5)).
+    fail0.
+label(('e$$fzn_parser$$non_array_flat_expr',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$scalar_flat_expr',3)).
+label(('e$$fzn_parser$$scalar_flat_expr',3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label(('e$$fzn_parser$$scalar_flat_expr',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$scalar_flat_expr',3,1)).
+    bp_fork(('e$$fzn_parser$$scalar_flat_expr',3,2)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$bool_literal',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_flat_expr',3,2)).
+    bp_fork(('e$$fzn_parser$$scalar_flat_expr',3,3)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$int_literal',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_flat_expr',3,3)).
+    bp_fork(('e$$fzn_parser$$scalar_flat_expr',3,4)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$float_literal',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_flat_expr',3,4)).
+    switch_cons_910(2,('e$$fzn_parser$$scalar_flat_expr',3,5),('e$$fzn_parser$$scalar_flat_expr',3,5),('e$$fzn_parser$$scalar_flat_expr',3,5)).
+    jmpn_eq_struct_fetch_v(-9,(str,1),('e$$fzn_parser$$scalar_flat_expr',3,5),('e$$fzn_parser$$scalar_flat_expr',3,5),-9).
+    cut0.
+    unify_value(3,-9).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$scalar_flat_expr',3,5)).
+    bp_fork(('e$$fzn_parser$$scalar_flat_expr',3,6)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$array_access_expr',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$scalar_flat_expr',3,6)).
+    switch_cons_910(2,('e$$fzn_parser$$scalar_flat_expr',3,9),('e$$fzn_parser$$scalar_flat_expr',3,9),('e$$fzn_parser$$scalar_flat_expr',3,9)).
+    jmpn_eq_struct_fetch_v(-9,(ident,1),('e$$fzn_parser$$scalar_flat_expr',3,9),('e$$fzn_parser$$scalar_flat_expr',3,9),-9).
+    cut0.
+    unify_value(3,-9).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$scalar_flat_expr',3,7)).
+    fail.
+label(('e$$fzn_parser$$scalar_flat_expr',3,8)).
+    fail0.
+label(('e$$fzn_parser$$scalar_flat_expr',3,9)).
+    cut_fail.
+label(('e$$fzn_parser$$int_flat_expr',3)).
+label(('e$$fzn_parser$$int_flat_expr',3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label(('e$$fzn_parser$$int_flat_expr',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$int_flat_expr',3,1)).
+    bp_fork(('e$$fzn_parser$$int_flat_expr',3,2)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$int_literal',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$int_flat_expr',3,2)).
+    bp_fork(('e$$fzn_parser$$int_flat_expr',3,3)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$array_access_expr',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$int_flat_expr',3,3)).
+    switch_cons_910(2,('e$$fzn_parser$$int_flat_expr',3,6),('e$$fzn_parser$$int_flat_expr',3,6),('e$$fzn_parser$$int_flat_expr',3,6)).
+    jmpn_eq_struct_fetch_v(-9,(ident,1),('e$$fzn_parser$$int_flat_expr',3,6),('e$$fzn_parser$$int_flat_expr',3,6),-9).
+    cut0.
+    unify_value(3,-9).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$int_flat_expr',3,4)).
+    fail.
+label(('e$$fzn_parser$$int_flat_expr',3,5)).
+    fail0.
+label(('e$$fzn_parser$$int_flat_expr',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$variable_expr',3)).
+label(('e$$fzn_parser$$variable_expr',3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label(('e$$fzn_parser$$variable_expr',3,0)).
+    nondet(3).
+label(('e$$fzn_parser$$variable_expr',3,1)).
+    bp_fork(('e$$fzn_parser$$variable_expr',3,2)).
+    para_uuu(3,2,1).
+    call0(('e$$fzn_parser$$array_access_expr',3),9).
+    cut.
+    return_det.
+    noop1(9).
+label(('e$$fzn_parser$$variable_expr',3,2)).
+    switch_cons_910(2,('e$$fzn_parser$$variable_expr',3,5),('e$$fzn_parser$$variable_expr',3,5),('e$$fzn_parser$$variable_expr',3,5)).
+    jmpn_eq_struct_fetch_v(-9,(ident,1),('e$$fzn_parser$$variable_expr',3,5),('e$$fzn_parser$$variable_expr',3,5),-9).
+    cut0.
+    unify_value(3,-9).
+    unify_value_return_det(-10,1).
+    return_det.
+label(('e$$fzn_parser$$variable_expr',3,3)).
+    fail.
+label(('e$$fzn_parser$$variable_expr',3,4)).
+    fail0.
+label(('e$$fzn_parser$$variable_expr',3,5)).
+    cut_fail.
+label(('e$$fzn_parser$$array_access_expr',3)).
+label(('e$$fzn_parser$$array_access_expr',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$array_access_expr',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3),-4).
+    switch_cons_vv(-5,('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3),-5,-6).
+    jmpn_eq_constant(-5,c('['),('e$$fzn_parser$$array_access_expr',3,3),('e$$fzn_parser$$array_access_expr',3,3)).
+    unify_struct_arg_uv0(3,(array_subscript,2),-4,-5).
+    para_uuv(-5,-6,2).
+    call0(('e$$fzn_parser$$int_index_expr',3),7).
+    last_call(1,('e$$fzn_parser$$expect',3),c(']'),u(2),u(1),7).
+    return_det.
+label(('e$$fzn_parser$$array_access_expr',3,3)).
+    fail.
+label(('e$$fzn_parser$$array_access_expr',3,4)).
+    fail0.
+label(('e$$fzn_parser$$array_access_expr',3,5)).
+    cut_fail.
+label(('e$$fzn_parser$$int_index_expr',3)).
+label(('e$$fzn_parser$$int_index_expr',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$int_index_expr',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$int_index_expr',3,2),('e$$fzn_parser$$int_index_expr',3,2),('e$$fzn_parser$$int_index_expr',3,2),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$int_index_expr',3,2),('e$$fzn_parser$$int_index_expr',3,2),-4).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$int_index_expr',3,2)).
+    last_call0(('e$$fzn_parser$$int_literal',3),4).
+    return_det.
+label(('e$$fzn_parser$$int_index_expr',3,4)).
+    fail.
+label(('e$$fzn_parser$$int_index_expr',3,5)).
+    fail0.
+label(('e$$fzn_parser$$int_index_expr',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$bool_literal',3)).
+label(('e$$fzn_parser$$bool_literal',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$bool_literal',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$bool_literal',3,5),('e$$fzn_parser$$bool_literal',3,5),('e$$fzn_parser$$bool_literal',3,5),-4,-5).
+label(('e$$fzn_parser$$bool_literal',3,2)).
+    hash(-4,0,0,('e$$fzn_parser$$bool_literal',3,5)).
+    pred(('e$$fzn_parser$$bool_literal',3,2),-4,2,('e$$fzn_parser$$bool_literal',3,5)).
+    arglabel(c,false,('e$$fzn_parser$$bool_literal',3,3)).
+    arglabel(c,true,('e$$fzn_parser$$bool_literal',3,4)).
+label(('e$$fzn_parser$$bool_literal',3,3)).
+    hash_jmpn_constant(c(false),('e$$fzn_parser$$bool_literal',3,5)).
+    unify_constant(3,c(false)).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$bool_literal',3,4)).
+    hash_jmpn_constant(c(true),('e$$fzn_parser$$bool_literal',3,5)).
+    unify_constant(3,c(true)).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$bool_literal',3,5)).
+    fail.
+label(('e$$fzn_parser$$bool_literal',3,6)).
+    fail0.
+label(('e$$fzn_parser$$bool_literal',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$int_literal',3)).
+label(('e$$fzn_parser$$int_literal',3,-1)).
+    allocate_det(3,11,([],0),4).
+label(('e$$fzn_parser$$int_literal',3,1)).
+    move_var(-4).
+    move_cons(-5,c(-),v(-6)).
+    jmpn_unif(u(2),u(-5),('e$$fzn_parser$$int_literal',3,2)).
+    unify_cons_v0u(-6,-7,1).
+    unify_struct_arg_u(-7,(i,1),-4).
+    sub_iuv(0,-4,-8).
+    move_value(-9,-8).
+    unify_value_return_det(3,-9).
+    return_det.
+    jmp(('e$$fzn_parser$$int_literal',3,3)).
+label(('e$$fzn_parser$$int_literal',3,2)).
+    move_vars(-9,-5).
+    unify_cons_v0u(2,-10,1).
+    unify_struct_arg_u(-10,(i,1),-4).
+    unify_value_return_det(3,-4).
+    return_det.
+label(('e$$fzn_parser$$int_literal',3,3)).
+    return_det.
+label(('e$$fzn_parser$$int_literal',3,4)).
+    fail.
+label(('e$$fzn_parser$$int_literal',3,5)).
+    fail0.
+label(('e$$fzn_parser$$int_literal',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$float_literal',3)).
+label(('e$$fzn_parser$$float_literal',3,-1)).
+    allocate_det(3,11,([],0),4).
+label(('e$$fzn_parser$$float_literal',3,1)).
+    move_var(-4).
+    move_cons(-5,c(-),v(-6)).
+    jmpn_unif(u(2),u(-5),('e$$fzn_parser$$float_literal',3,2)).
+    unify_cons_v0u(-6,-7,1).
+    unify_struct_arg_u(-7,(f,1),-4).
+    sub_iuv(0,-4,-8).
+    move_value(-9,-8).
+    unify_value_return_det(3,-9).
+    return_det.
+    jmp(('e$$fzn_parser$$float_literal',3,3)).
+label(('e$$fzn_parser$$float_literal',3,2)).
+    move_vars(-9,-5).
+    unify_cons_v0u(2,-10,1).
+    unify_struct_arg_u(-10,(f,1),-4).
+    unify_value_return_det(3,-4).
+    return_det.
+label(('e$$fzn_parser$$float_literal',3,3)).
+    return_det.
+label(('e$$fzn_parser$$float_literal',3,4)).
+    fail.
+label(('e$$fzn_parser$$float_literal',3,5)).
+    fail0.
+label(('e$$fzn_parser$$float_literal',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$set_literal',3)).
+label(('e$$fzn_parser$$set_literal',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$set_literal',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$set_literal',3,3),('e$$fzn_parser$$set_literal',3,3),('e$$fzn_parser$$set_literal',3,3),-4,-5).
+    jmpn_eq_constant(-4,c('{'),('e$$fzn_parser$$set_literal',3,3),('e$$fzn_parser$$set_literal',3,3)).
+    unify_struct_arg_v0(3,({},1),-4).
+    last_call(33,('e$$fzn_parser$$sfe_list',3),u(-4),u(-5),u(1),6).
+    return_det.
+label(('e$$fzn_parser$$set_literal',3,3)).
+    unify_struct_arg_2v0(3,(range,2),-4,3).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$int_flat_expr',3),6).
+    unify_cons(-5,c(..),v(2)).
+    last_call0(('e$$fzn_parser$$int_flat_expr',3),6).
+    return_det.
+label(('e$$fzn_parser$$set_literal',3,5)).
+    fail.
+label(('e$$fzn_parser$$set_literal',3,6)).
+    fail0.
+label(('e$$fzn_parser$$set_literal',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_sfe_list',3)).
+label(('e$$fzn_parser$$nonempty_sfe_list',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_sfe_list',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$scalar_flat_expr',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_sfe_list',3,2)).
+    last_call(2,('e$$fzn_parser$$sfe_list',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_sfe_list',3,3)).
+label(('e$$fzn_parser$$nonempty_sfe_list',3,2)).
+    move_var(-6).
+    para_c(c('}')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_sfe_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_sfe_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_sfe_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_sfe_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$sfe_list',3)).
+label(('e$$fzn_parser$$sfe_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$sfe_list',3,1)).
+    move_cons(-4,c('}'),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$sfe_list',3,2)).
+    unify_nil(3).
+    unify_value_return_det(-5,1).
+    return_det.
+    jmp(('e$$fzn_parser$$sfe_list',3,3)).
+label(('e$$fzn_parser$$sfe_list',3,2)).
+    move_vars(-5,-4).
+    last_call0(('e$$fzn_parser$$nonempty_sfe_list',3),6).
+    return_det.
+label(('e$$fzn_parser$$sfe_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$sfe_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$sfe_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$sfe_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$array_literal',3)).
+label(('e$$fzn_parser$$array_literal',3,-1)).
+    allocate_det(3,5,([],0),4).
+label(('e$$fzn_parser$$array_literal',3,1)).
+    switch_cons_car(2,('e$$fzn_parser$$array_literal',3,3),('e$$fzn_parser$$array_literal',3,3),('e$$fzn_parser$$array_literal',3,3),-4).
+    jmpn_eq_constant(-4,c('['),('e$$fzn_parser$$array_literal',3,3),('e$$fzn_parser$$array_literal',3,3)).
+    last_call0(('e$$fzn_parser$$nafe_list',3),5).
+    return_det.
+label(('e$$fzn_parser$$array_literal',3,3)).
+    fail.
+label(('e$$fzn_parser$$array_literal',3,4)).
+    fail0.
+label(('e$$fzn_parser$$array_literal',3,5)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_nafe_list',3)).
+label(('e$$fzn_parser$$nonempty_nafe_list',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_nafe_list',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$non_array_flat_expr',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_nafe_list',3,2)).
+    last_call(2,('e$$fzn_parser$$nafe_list',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_nafe_list',3,3)).
+label(('e$$fzn_parser$$nonempty_nafe_list',3,2)).
+    move_var(-6).
+    para_c(c(']')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_nafe_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_nafe_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_nafe_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_nafe_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$nafe_list',3)).
+label(('e$$fzn_parser$$nafe_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$nafe_list',3,1)).
+    move_cons(-4,c(']'),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$nafe_list',3,2)).
+    unify_value(-5,1).
+    unify_nil(3).
+    return_det.
+    jmp(('e$$fzn_parser$$nafe_list',3,3)).
+label(('e$$fzn_parser$$nafe_list',3,2)).
+    move_vars(-5,-4).
+    last_call0(('e$$fzn_parser$$nonempty_nafe_list',3),6).
+    return_det.
+label(('e$$fzn_parser$$nafe_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nafe_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nafe_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nafe_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$ident_anns',3)).
+label(('e$$fzn_parser$$ident_anns',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$fzn_parser$$ident_anns',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$ident_anns',3,5),('e$$fzn_parser$$ident_anns',3,5),('e$$fzn_parser$$ident_anns',3,5),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$ident_anns',3,5),('e$$fzn_parser$$ident_anns',3,5),-4).
+    move_cons(-6,c(::),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$ident_anns',3,2)).
+    unify_struct_arg_uv0(3,(::,2),-4,-8).
+    last_call(33,('e$$fzn_parser$$annotations_tail',3),u(-8),u(-7),u(1),9).
+    return_det.
+    jmp(('e$$fzn_parser$$ident_anns',3,3)).
+label(('e$$fzn_parser$$ident_anns',3,2)).
+    move_vars(-8,-6).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$ident_anns',3,3)).
+    return_det.
+label(('e$$fzn_parser$$ident_anns',3,5)).
+    fail.
+label(('e$$fzn_parser$$ident_anns',3,6)).
+    fail0.
+label(('e$$fzn_parser$$ident_anns',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$annotations_tail',3)).
+label(('e$$fzn_parser$$annotations_tail',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$fzn_parser$$annotations_tail',3,1)).
+    para_v(-4).
+    para_uv(2,-5).
+    call0(('e$$fzn_parser$$annotation',3),6).
+    move_cons(-6,c(::),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$annotations_tail',3,2)).
+    unify_struct_arg_u(3,(::,2),-4).
+    unify_arg_v(-8).
+    tr_det_call2_au(('e$$fzn_parser$$annotations_tail',3,1),1,2,3,-8,-7,1,9).
+    return_det.
+    jmp(('e$$fzn_parser$$annotations_tail',3,3)).
+label(('e$$fzn_parser$$annotations_tail',3,2)).
+    move_vars(-8,-6).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$annotations_tail',3,3)).
+    return_det.
+label(('e$$fzn_parser$$annotations_tail',3,5)).
+    fail.
+label(('e$$fzn_parser$$annotations_tail',3,6)).
+    fail0.
+label(('e$$fzn_parser$$annotations_tail',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$annotation',3)).
+label(('e$$fzn_parser$$annotation',3,-1)).
+    allocate_det(3,18,([],0),4).
+label(('e$$fzn_parser$$annotation',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$annotation',3,12),('e$$fzn_parser$$annotation',3,12),('e$$fzn_parser$$annotation',3,12),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$annotation',3,12),('e$$fzn_parser$$annotation',3,12),-4).
+    move_cons(-6,c('('),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$annotation',3,2)).
+    para_v(-8).
+    para_uu(-7,1).
+    call0(('e$$fzn_parser$$nonempty_expr_list',3),9).
+    move_vars(-10,-9).
+    builtin3(270,('e$$fzn_parser$$annotation',3,4),u(-4),u(-8),v(-11)).
+    move_vars(-17,-12).
+    jmp(('e$$fzn_parser$$annotation',3,5)).
+label(('e$$fzn_parser$$annotation',3,4)).
+    move_var(-11).
+    jmpn_atom_y(-4,('e$$fzn_parser$$annotation',3,6)).
+    move_cons(-12,u(-9),u(-10)).
+    jmpn_unif(u(-8),u(-12),('e$$fzn_parser$$annotation',3,6)).
+    move_cons(-13,u(-4),u(-8)).
+    builtin2(206,('e$$fzn_parser$$annotation',3,12),u(-11),u(-13)).
+    move_vars(-17,-14).
+    jmp(('e$$fzn_parser$$annotation',3,7)).
+label(('e$$fzn_parser$$annotation',3,6)).
+    move_vars(-13,-12).
+    jmpn_atom_y(-4,('e$$fzn_parser$$annotation',3,8)).
+    jmpn_int_y(-8,('e$$fzn_parser$$annotation',3,10)).
+    jmpn_gt_ui(-8,0,('e$$fzn_parser$$annotation',3,10)).
+    para_u(-8).
+    call0((garbage_collect,1),14).
+    functor(u(-11),u(-4),u(-8)).
+    move_vars(-15,-14).
+    jmp(('e$$fzn_parser$$annotation',3,11)).
+label(('e$$fzn_parser$$annotation',3,10)).
+    move_struct(-14,(invalid_argument,1)).
+    build_arg_u(-8).
+    move_struct(-15,(new_struct,2)).
+    build_arg_2u(-4,-8).
+    para_uu(-14,-15).
+    call0((handle_exception,2),16).
+label(('e$$fzn_parser$$annotation',3,11)).
+    move_vars(-17,-16).
+    jmp(('e$$fzn_parser$$annotation',3,9)).
+label(('e$$fzn_parser$$annotation',3,8)).
+    move_vars(-15,-14).
+    move_struct(-16,(atom_expected,1)).
+    build_arg_u(-4).
+    move_struct(-17,(new_struct,2)).
+    build_arg_2u(-4,-8).
+    para_uu(-16,-17).
+    call0((handle_exception,2),18).
+label(('e$$fzn_parser$$annotation',3,9)).
+label(('e$$fzn_parser$$annotation',3,7)).
+label(('e$$fzn_parser$$annotation',3,5)).
+    unify_value_return_det(3,-11).
+    return_det.
+    jmp(('e$$fzn_parser$$annotation',3,3)).
+label(('e$$fzn_parser$$annotation',3,2)).
+    move_vars(-17,-6).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$annotation',3,3)).
+    return_det.
+label(('e$$fzn_parser$$annotation',3,12)).
+    fail.
+label(('e$$fzn_parser$$annotation',3,13)).
+    fail0.
+label(('e$$fzn_parser$$annotation',3,14)).
+    cut_fail.
+label(('e$$fzn_parser$$solve_annotations',3)).
+label(('e$$fzn_parser$$solve_annotations',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$fzn_parser$$solve_annotations',3,1)).
+    para_v(-4).
+    para_uv(2,-5).
+    call0(('e$$fzn_parser$$solve_annotation',3),6).
+    move_cons(-6,c(::),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$solve_annotations',3,2)).
+    unify_struct_arg_u(3,(::,2),-4).
+    unify_arg_v(-8).
+    tr_det_call2_au(('e$$fzn_parser$$solve_annotations',3,1),1,2,3,-8,-7,1,9).
+    return_det.
+    jmp(('e$$fzn_parser$$solve_annotations',3,3)).
+label(('e$$fzn_parser$$solve_annotations',3,2)).
+    move_vars(-8,-6).
+    unify_value(3,-4).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$solve_annotations',3,3)).
+    return_det.
+label(('e$$fzn_parser$$solve_annotations',3,5)).
+    fail.
+label(('e$$fzn_parser$$solve_annotations',3,6)).
+    fail0.
+label(('e$$fzn_parser$$solve_annotations',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$solve_annotation',3)).
+label(('e$$fzn_parser$$solve_annotation',3,-1)).
+    allocate_det(3,8,([],0),4).
+label(('e$$fzn_parser$$solve_annotation',3,1)).
+    switch_cons_vv(2,('e$$fzn_parser$$solve_annotation',3,2),('e$$fzn_parser$$solve_annotation',3,2),('e$$fzn_parser$$solve_annotation',3,2),-4,-5).
+    jmpn_eq_struct_fetch_v(-4,(ident,1),('e$$fzn_parser$$solve_annotation',3,2),('e$$fzn_parser$$solve_annotation',3,2),-6).
+    jmpn_eq_constant(-6,c(seq_search),('e$$fzn_parser$$solve_annotation',3,2),('e$$fzn_parser$$solve_annotation',3,2)).
+    unify_list(-5,2,c('('),c('['),v(-5)).
+    para_v(-6).
+    para_uv(-5,-7).
+    call0(('e$$fzn_parser$$comma_separated_annotations',3),8).
+    unify_list(-7,2,c(']'),c(')'),u(1)).
+    unify_struct_arg_u(3,(seq_search,1),-6).
+    return_det.
+label(('e$$fzn_parser$$solve_annotation',3,2)).
+    last_call0(('e$$fzn_parser$$annotation',3),4).
+    return_det.
+label(('e$$fzn_parser$$solve_annotation',3,4)).
+    fail.
+label(('e$$fzn_parser$$solve_annotation',3,5)).
+    fail0.
+label(('e$$fzn_parser$$solve_annotation',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$comma_separated_annotations',3)).
+label(('e$$fzn_parser$$comma_separated_annotations',3,-1)).
+    allocate_det(3,9,([],0),4).
+label(('e$$fzn_parser$$comma_separated_annotations',3,1)).
+    para_v(-4).
+    para_uv(2,-5).
+    call0(('e$$fzn_parser$$annotation',3),6).
+    move_cons(-6,c(','),v(-7)).
+    jmpn_unif(u(-5),u(-6),('e$$fzn_parser$$comma_separated_annotations',3,2)).
+    unify_cons(3,u(-4),v(-8)).
+    tr_det_call2_au(('e$$fzn_parser$$comma_separated_annotations',3,1),1,2,3,-8,-7,1,9).
+    return_det.
+    jmp(('e$$fzn_parser$$comma_separated_annotations',3,3)).
+label(('e$$fzn_parser$$comma_separated_annotations',3,2)).
+    move_vars(-8,-6).
+    unify_cons_uc(3,-4,c([])).
+    unify_arg_c(c([])).
+    unify_value_return_det(-5,1).
+    return_det.
+label(('e$$fzn_parser$$comma_separated_annotations',3,3)).
+    return_det.
+label(('e$$fzn_parser$$comma_separated_annotations',3,5)).
+    fail.
+label(('e$$fzn_parser$$comma_separated_annotations',3,6)).
+    fail0.
+label(('e$$fzn_parser$$comma_separated_annotations',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$nonempty_expr_list',3)).
+label(('e$$fzn_parser$$nonempty_expr_list',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$fzn_parser$$nonempty_expr_list',3,1)).
+    unify_cons_v0(3,-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$flat_expr',3),6).
+    move_cons(-4,c(','),v(-6)).
+    jmpn_unif(u(-5),u(-4),('e$$fzn_parser$$nonempty_expr_list',3,2)).
+    last_call(2,('e$$fzn_parser$$expr_list',3),u(3),u(-6),u(1),7).
+    return_det.
+    jmp(('e$$fzn_parser$$nonempty_expr_list',3,3)).
+label(('e$$fzn_parser$$nonempty_expr_list',3,2)).
+    move_var(-6).
+    para_c(c(')')).
+    para_uu(-5,1).
+    call0(('e$$fzn_parser$$expect',3),7).
+    unify_nil(3).
+    return_det.
+label(('e$$fzn_parser$$nonempty_expr_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$nonempty_expr_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$nonempty_expr_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$nonempty_expr_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$expr_list',3)).
+label(('e$$fzn_parser$$expr_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$expr_list',3,1)).
+    move_cons(-4,c(')'),v(-5)).
+    jmpn_unif(u(2),u(-4),('e$$fzn_parser$$expr_list',3,2)).
+    unify_nil(3).
+    unify_value_return_det(-5,1).
+    return_det.
+    jmp(('e$$fzn_parser$$expr_list',3,3)).
+label(('e$$fzn_parser$$expr_list',3,2)).
+    move_vars(-5,-4).
+    last_call0(('e$$fzn_parser$$nonempty_expr_list',3),6).
+    return_det.
+label(('e$$fzn_parser$$expr_list',3,3)).
+    return_det.
+label(('e$$fzn_parser$$expr_list',3,5)).
+    fail.
+label(('e$$fzn_parser$$expr_list',3,6)).
+    fail0.
+label(('e$$fzn_parser$$expr_list',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$expect_list',3)).
+label(('e$$fzn_parser$$expect_list',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$expect_list',3,1)).
+    switch_cons_car(3,('e$$fzn_parser$$expect_list',3,3),('e$$fzn_parser$$expect_list',3,4),('e$$fzn_parser$$expect_list',3,4),-4).
+    para_uuv(-4,2,-5).
+    call0(('e$$fzn_parser$$expect',3),6).
+    tr_det_call1_au(('e$$fzn_parser$$expect_list',3,1),2,3,3,-5,1,6).
+    return_det.
+label(('e$$fzn_parser$$expect_list',3,3)).
+    unify_value_return_det(2,1).
+    return_det.
+label(('e$$fzn_parser$$expect_list',3,4)).
+    fail.
+label(('e$$fzn_parser$$expect_list',3,5)).
+    fail0.
+label(('e$$fzn_parser$$expect_list',3,6)).
+    cut_fail.
+label(('e$$fzn_parser$$expect',3)).
+label(('e$$fzn_parser$$expect',3,-1)).
+    allocate_det(3,6,([],0),4).
+label(('e$$fzn_parser$$expect',3,1)).
+    unify_cons_v0v0(2,-4,-5).
+    jmpn_id_uu(-4,3,('e$$fzn_parser$$expect',3,2)).
+    unify_value_return_det(-5,1).
+    return_det.
+    jmp(('e$$fzn_parser$$expect',3,3)).
+label(('e$$fzn_parser$$expect',3,2)).
+    unify_value(-5,1).
+    move_comp_list(-5,37,c('U'),c(n),c(e),c(x),c(p),c(e),c(c),c(t),c(e),c(d),c(' '),c('T'),c(o),c(k),c(e),c(n),c(','),c(e),c(x),c(p),c(e),c(c),c(t),c(e),c(d),c(' '),c('%'),c(w),c(','),c(f),c(o),c(u),c(n),c(d),c(' '),c('%'),c(w)).
+    last_call(801,('e$$fzn_parser$$syntax_error',3),u(-5),u(3),u(-4),6).
+    return_det.
+label(('e$$fzn_parser$$expect',3,3)).
+    return_det.
+label(('e$$fzn_parser$$expect',3,5)).
+    fail.
+label(('e$$fzn_parser$$expect',3,6)).
+    fail0.
+label(('e$$fzn_parser$$expect',3,7)).
+    cut_fail.
+label(('e$$fzn_parser$$syntax_error',3)).
+label(('e$$fzn_parser$$syntax_error',3,-1)).
+    allocate_det(3,5,([],0),4).
+label(('e$$fzn_parser$$syntax_error',3,1)).
+    move_comp_list(-4,14,c('S'),c(y),c(n),c(t),c(a),c(x),c(' '),c(e),c(r),c(r),c(o),c(r),c(:),c(' ')).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_print,2),5).
+    para_uuu(3,2,1).
+    call0((picat_printf,3),5).
+    para_c(c(user)).
+    call0((nl,1),5).
+    halt.
+    return_det.
+label(('e$$fzn_parser$$syntax_error',3,2)).
+    fail.
+label(('e$$fzn_parser$$syntax_error',3,3)).
+    fail0.
+label(('e$$fzn_parser$$syntax_error',3,4)).
+    cut_fail.
+label(('e$$fzn_parser$$syntax_error',2)).
+label(('e$$fzn_parser$$syntax_error',2,-1)).
+    allocate_det(2,5,([],0),4).
+label(('e$$fzn_parser$$syntax_error',2,1)).
+    move_comp_list(-4,14,c('S'),c(y),c(n),c(t),c(a),c(x),c(' '),c(e),c(r),c(r),c(o),c(r),c(:),c(' ')).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_print,2),5).
+    para_uu(2,1).
+    call0((picat_printf,2),5).
+    para_c(c(user)).
+    call0((nl,1),5).
+    halt.
+    return_det.
+label(('e$$fzn_parser$$syntax_error',2,2)).
+    fail.
+label(('e$$fzn_parser$$syntax_error',2,3)).
+    fail0.
+label(('e$$fzn_parser$$syntax_error',2,4)).
+    cut_fail.
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2)).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,-1)).
+    allocate_nondet(2,13,([],0),9).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,0)).
+    nondet(2).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,1)).
+    bp_fork(('de$$fzn_parser$$constraint_elem_3_0__1',2,6)).
+    builtin2(267,('de$$fzn_parser$$constraint_elem_3_0__1',2,2),u(1),v(-9)).
+    move_var(-10).
+    jmp(('de$$fzn_parser$$constraint_elem_3_0__1',2,3)).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,2)).
+    move_var(-9).
+    move_struct0(-10,(struct_expected,1)).
+    build_arg_u(1).
+    para_uc(-10,c(name)).
+    call0((handle_exception,2),11).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,3)).
+    jmpn_id_uc(-9,c(subscript),('de$$fzn_parser$$constraint_elem_3_0__1',2,7)).
+    builtin2(266,('de$$fzn_parser$$constraint_elem_3_0__1',2,4),u(1),v(-11)).
+    move_var(-12).
+    jmp(('de$$fzn_parser$$constraint_elem_3_0__1',2,5)).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,4)).
+    move_var(-11).
+    move_struct(-12,(struct_expected,1)).
+    build_arg_u(1).
+    para_uc(-12,c(arity)).
+    call0((handle_exception,2),13).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,5)).
+    jmpn_id_uc(-11,c(2),('de$$fzn_parser$$constraint_elem_3_0__1',2,7)).
+    cut.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,6)).
+    cut_return.
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,7)).
+    fail.
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,8)).
+    fail0.
+label(('de$$fzn_parser$$constraint_elem_3_0__1',2,9)).
+    cut_fail.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3)).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,0)).
+    nondet(3).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,1)).
+    bp_fork(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,2)).
+    para_uuc(1,2,c([])).
+    call0(('e$$fzn_parser$$item',3),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,2)).
+    cut_return.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,3)).
+    fail.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,4)).
+    fail0.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__2',3,5)).
+    cut_fail.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3)).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,0)).
+    nondet(3).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,1)).
+    bp_fork(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,2)).
+    para_uuc(1,2,c([])).
+    call0(('e$$fzn_tokenizer$$read_flatzinc_tokens',3),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,2)).
+    cut_return.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,3)).
+    fail.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,4)).
+    fail0.
+label(('de$$fzn_parser$$f$$read_flatzinc_item_2_0__1',3,5)).
+    cut_fail.

@@ -1,0 +1,9 @@
+{
+ "solverSelected" : "",
+ "problemType":"BOOL",
+"configuration" : 
+	{
+	"DFS":true,
+	"mstprim":false
+	}
+}

@@ -2,6 +2,7 @@ package com.coffee.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -45,6 +46,10 @@ public class CoffeeServlet extends HttpServlet {
 			String resourceType = request.getParameter("resourceType");
 			String resourceContent = request.getParameter("resourceContent");
 			String responseType = request.getParameter("responseType");
+			String solverParameters = request.getParameter("solverParameters");
+			String solverType = request.getParameter("solverType");
+			String problemType = request.getParameter("problemType");
+			String numberOfSolutions = request.getParameter("numberOfSolutions");
 			
 			String stringResponse = "<br/>HTTP PARAMS RECEIVED";
 			String realRootPath = request.getServletContext().getRealPath("/");
@@ -52,13 +57,32 @@ public class CoffeeServlet extends HttpServlet {
 			String dataDir = realRootPath+"/WEB-INF";
 			
 			try {
-				stringResponse = Transformation.transform(modelType, resourceType, resourceContent, responseType, libDir, dataDir);
+				int nos = Integer.parseInt(numberOfSolutions);
+				stringResponse = Transformation.transform(
+						modelType, 
+						resourceType, 
+						resourceContent, 
+						responseType, 
+						libDir, 
+						dataDir,
+						solverParameters,
+						solverType,
+						problemType,
+						nos);
 			} catch (InterruptedException e) {
 				stringResponse = e.getMessage();
 				e.printStackTrace();
 			} catch (IOException e) {
 				stringResponse = e.getMessage();
 				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				stringResponse = e.getMessage();
+				e.printStackTrace();				
+			} catch (Exception e) {
+				final StringBuilder stringResponseJsonParsing = new StringBuilder(e.getMessage());
+				Arrays.stream(e.getStackTrace()).forEach(excp -> stringResponseJsonParsing.append("<br>"+excp));
+				e.printStackTrace();
+				stringResponse = stringResponseJsonParsing.toString();
 			}
 			out.print(stringResponse);
 		} catch (IOException e) {

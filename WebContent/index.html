@@ -159,6 +159,26 @@ function loadURLInArea(){
 					json data.</td>
 			</tr>
 			<tr>
+				<td>Solver Parameters:</td>
+				<td colspan="2"><textarea name="solverParameters" style="width: 100%;" rows="4">"DFS":true,
+"mstprim":false</textarea></td>
+			</tr>
+			<tr>
+				<td>Solver Type:</td>
+				<td><select name="solverType">
+						<option value="Gecode">CSPSolver (Gecode)</option>
+						<option value="picat">SATSolver (Picat)</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Problem Type:</td>
+				<td>BOOL<input type="hidden" name="problemType" value="BOOL"></td>
+			</tr>
+			<tr>
+				<td>Number of Solutions:</td>
+				<td><input type="text" name="numberOfSolutions" value="1"></td>
+			</tr>
+			<tr>
 				<td colspan="3"><input type="submit" value="Transform!" /></td>
 			</tr>
 		</table>

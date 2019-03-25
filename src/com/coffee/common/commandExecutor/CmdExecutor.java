@@ -17,23 +17,28 @@ import java.util.concurrent.Executors;
 public class CmdExecutor {
 	private static final String EXECUTION_PATH = "COFFEE_EXECUTION_PATH";
 	private boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-	private boolean isEnvrVariable;
 	public String directory;
 	private ProcessBuilder processBuilder;
-
+	
+	private String debugLog;
+	
 	public CmdExecutor() {
-
-//		System.out.println(System.getenv(EXECUTION_PATH));		
-		processBuilder = new ProcessBuilder();
-		processBuilder.directory(new File(System.getenv(EXECUTION_PATH)));
-		isEnvrVariable = true;
+		initialize(EXECUTION_PATH);
 	}
 
 	public CmdExecutor(String executionPath) {
-
+		initialize(executionPath);
+	}
+	
+	public String getDebugLog() {
+		return debugLog;
+	}
+	
+	private void initialize(String executionPath) {
+		debugLog = "";
+		debugLog += "initialize:"+executionPath+"\n";
 		processBuilder = new ProcessBuilder();
-		processBuilder.directory(new File(executionPath));
-
+		processBuilder.directory(new File(executionPath));		
 	}
 
 	public void setCommandInConsole(List<String> params) {
@@ -44,29 +49,18 @@ public class CmdExecutor {
 			params.add(0, "sh");			
 			params.add(1, "-c");			
 		}
-		System.out.println(params);
+		debugLog += "setCommandInConsole:"+params+"\n";
 		processBuilder.command(params);
 	}
 	
 	public void addCmd(List<String> params) {
-		//if (isEnvrVariable) {
-			processBuilder.command(params);
-
-		/*} else {
-			if (isWindows) {
-				processBuilder.command("cmd.exe", "/c", "dir");
-			} else {
-				processBuilder.command("sh", "-c", "ls");
-			}
-
-		}*/
+		processBuilder.command(params);
+		debugLog += "addCmd:"+params+"\n";
 	}
 	
 	public int runCmd() throws InterruptedException, IOException {
 		Process process = processBuilder.start();
 		
-		//StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
-		//Executors.newSingleThreadExecutor().submit(streamGobbler);
 		int exitCode = process.waitFor();
         BufferedReader stdInput = new BufferedReader(new 
                 InputStreamReader(process.getInputStream()));
@@ -83,8 +77,8 @@ public class CmdExecutor {
         	errStr += line + "\n";
         }
         
-        System.out.println(inputStr);
-        System.out.println(errStr);
+        debugLog += "*** Command Input ***\n"+inputStr;
+        debugLog += "*** Command Error Output ***\n"+errStr;
         
 		System.out.println("exitCode="+exitCode);
 		System.out.println("p.isAlive()="+process.isAlive());

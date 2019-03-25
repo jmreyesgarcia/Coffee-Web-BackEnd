@@ -1,0 +1,14 @@
+{
+ "solverSelected" : "",
+"configuration" : 
+[
+	{
+	"elementID" : "DFS",
+	"value" : "selected"
+	},
+	{
+	"elementID" : "mstprim",
+	"value" : "unselected"
+	}
+]
+}
