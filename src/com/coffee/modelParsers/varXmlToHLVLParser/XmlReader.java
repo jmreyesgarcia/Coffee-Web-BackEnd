@@ -1,8 +1,7 @@
 package com.coffee.modelParsers.varXmlToHLVLParser;
 
-import java.io.BufferedWriter;
+
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ import com.coffee.modelParsers.utils.FileUtils;
  * file into tree structure. and extract information from XML tree to create XML
  * element object or XML dependency objects too.
  * 
- * @version 1.5, 19/01/2019
+ * @version 0.5, 19/01/2019
  * @author Joan David Colina Echeverry
  */
 public class XmlReader {
@@ -50,7 +49,7 @@ public class XmlReader {
 	}
 
 	/**
-	 * this method change importantXMLDependecy' value for paramater.
+	 * this method change importantXMLDependecy's value for paramater.
 	 * 
 	 * @param importantXmlDependecy: ArrayList with Dependecy objects
 	 */

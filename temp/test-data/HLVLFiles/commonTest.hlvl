@@ -1,26 +1,26 @@
 model  commonTest_generated
 elements: 
 	boolean Sala_de_juegos
-	boolean BaÃ±era
+	boolean Bañera
 	boolean Cuarto_secundario
 	boolean ducha
 	boolean Lava_Platos
 	boolean Garaje
 	boolean Orno
 	boolean Casa
-	boolean BaÃ±o
+	boolean Baño
 	boolean Cocina
 	boolean Cuarto_Principal
 	boolean Biblioteca
 relations:
 	r0: coreElements(Casa)
-	r1:group(Casa,[Cocina, BaÃ±o, Cuarto_Principal, Cuarto_secundario])[1,*]
+	r1:group(Casa,[Cocina, Baño, Cuarto_Principal, Cuarto_secundario])[1,*]
 	r2:group(Casa,[Biblioteca, Sala_de_juegos])[1,*]
-	r3:group(BaÃ±o,[BaÃ±era, ducha])[1,*]
+	r3:group(Baño,[Bañera, ducha])[1,*]
 	r4:decomposition(Lava_Platos,[Cocina])<1>
 	r5:decomposition(Cocina,[Orno])<0>
-	r6: implies(Cuarto_Principal,BaÃ±o)
-	r7:decomposition(BaÃ±o,[Cuarto_secundario])<0>
+	r6: implies(Cuarto_Principal,Baño)
+	r7:decomposition(Baño,[Cuarto_secundario])<0>
 	r8:decomposition(Casa,[Garaje])<0>
 	r9: mutex(Biblioteca, Sala_de_juegos)
 

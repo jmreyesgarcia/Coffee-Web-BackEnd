@@ -1,5 +1,4 @@
 package com.coffee.modelParsers.varXmlToHLVLParser;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,9 +13,9 @@ import com.coffee.modelParsers.utils.FileUtils;
 import com.coffee.modelParsers.utils.ParsingParameters;
 
 /**
- * Esta es una clase que es responsable de extraer informaci�n del objeto del
- * elemento XML y del objeto de dependencia XML y convertir esa informaci�n en
- * el c�digo HLVL.
+ * This is a class that is responsible for extracting 
+ * information from the object of the XML element and the XML 
+ * dependency object and converting that information into the HLVL code.
  * 
  * @version 0.5, 19/01/2019
  * @author Joan David Colina Echeverry

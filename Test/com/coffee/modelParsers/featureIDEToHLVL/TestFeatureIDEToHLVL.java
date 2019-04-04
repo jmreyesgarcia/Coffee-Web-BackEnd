@@ -10,9 +10,8 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
+import com.coffee.modelParsers.featureIDEToHlvlParser.FeatureIDEToHLVL;
 import com.coffee.modelParsers.utils.ParsingParameters;
-
-import featureIDEToHlvlParser.FeatureIDEToHLVL;
 
 class TestFeatureIDEToHLVL {
 
@@ -159,7 +158,7 @@ class TestFeatureIDEToHLVL {
 
 		try {
 			String variamosResult = fToH.parse(xml);
-			System.out.println(variamosResult);
+		
 			assertTrue(resultado.equals(variamosResult));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -202,7 +201,7 @@ class TestFeatureIDEToHLVL {
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
-			System.out.println("pint-" + linea);
+			
 			String datosHLVL = "";
 			while (!linea.equals("")) {
 				datosHLVL += linea + "\n";
@@ -268,7 +267,7 @@ class TestFeatureIDEToHLVL {
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
-			System.out.println("pint-" + linea);
+		
 			String datosHLVL = "";
 			while (!linea.equals("")) {
 				datosHLVL += linea + "\n";
