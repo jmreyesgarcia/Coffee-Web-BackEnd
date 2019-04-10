@@ -15,6 +15,9 @@ import com.coffee.modelParsers.utils.ParsingParameters;
 
 class TestFeatureIDEToHLVL {
 
+	public static final String COMMONT_PATH_INPUT="temp/DataTestFeatureIDE/featureIDE";
+	public static final String COMMONT_PATH_OUTPUT="temp/DataTestFeatureIDE/hlvl";
+
 	private FeatureIDEToHLVL fToH;
 
 	@Test
@@ -158,7 +161,7 @@ class TestFeatureIDEToHLVL {
 
 		try {
 			String variamosResult = fToH.parse(xml);
-		
+		System.out.println(resultado);
 			assertTrue(resultado.equals(variamosResult));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -170,8 +173,8 @@ class TestFeatureIDEToHLVL {
 	public void CommonTest() {
 
 		ParsingParameters params = new ParsingParameters();
-		params.setInputPath("temp/featureIDE");
-		params.setOutputPath("temp/hlvl");
+		params.setInputPath(COMMONT_PATH_INPUT);
+		params.setOutputPath(COMMONT_PATH_OUTPUT);
 		params.setTargetName("commonTest");
 		fToH = new FeatureIDEToHLVL(params);
 
@@ -197,7 +200,7 @@ class TestFeatureIDEToHLVL {
 				+ "	r11:group(Games,[Chess, TRESDCarRace, Testris])[1,*]\n"
 				+ "	r12:decomposition(EjemploFeatureIDE,[Games])<0>\n";
 		try {
-			File file = new File("temp/hlvl/commonTest.hlvl");
+			File file = new File(COMMONT_PATH_OUTPUT+"/commonTest.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
@@ -220,8 +223,8 @@ class TestFeatureIDEToHLVL {
 	public void CommonTestV2() {
 
 		ParsingParameters params = new ParsingParameters();
-		params.setInputPath("temp/featureIDE");
-		params.setOutputPath("temp/hlvl");
+		params.setInputPath(COMMONT_PATH_INPUT);
+		params.setOutputPath(COMMONT_PATH_OUTPUT);
 		params.setTargetName("commonTest");
 		fToH = new FeatureIDEToHLVL(params);
 
@@ -263,7 +266,7 @@ class TestFeatureIDEToHLVL {
 				"	r12: implies(TRESGConector,GPU)\n" + 
 				"	r13: mutex(GPS, Chess)\n";
 		try {
-			File file = new File("temp/hlvl/commonTest0.hlvl");
+			File file = new File(COMMONT_PATH_OUTPUT+"commonTest0.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();

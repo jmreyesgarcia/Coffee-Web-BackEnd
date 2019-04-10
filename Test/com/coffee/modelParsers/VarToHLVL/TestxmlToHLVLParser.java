@@ -12,6 +12,9 @@ import com.coffee.modelParsers.varXmlToHLVLParser.VariamosXMLToHlvlParser;
 
 class TestxmlToHLVLParser {
 
+	public static final String COMMON_PATH_INPUT ="temp/DataTestVariamos/xmlToHLVLFiles/";
+	public static final String COMMON_PATH_OUTPUT ="temp/DataTestVariamos/HLVLFiles";
+
 	private VariamosXMLToHlvlParser variamosXMLToHlvlParser;
 
 
@@ -772,8 +775,8 @@ class TestxmlToHLVLParser {
 	public void CommonTest() {
 
 		ParsingParameters params = new ParsingParameters();
-		params.setInputPath("temp/test-data/xmlToHLVLFiles/commonTest");
-		params.setOutputPath("temp/test-data/HLVLFiles");
+		params.setInputPath(COMMON_PATH_INPUT+"commonTest");
+		params.setOutputPath(COMMON_PATH_OUTPUT);
 		params.setTargetName("commonTest");
 		variamosXMLToHlvlParser = new VariamosXMLToHlvlParser(params);
 		try {
@@ -794,7 +797,7 @@ class TestxmlToHLVLParser {
 				+ "	r6: implies(Cuarto_Principal,Baño)\n" + "	r7:decomposition(Baño,[Cuarto_secundario])<0>\n"
 				+ "	r8:decomposition(Casa,[Garaje])<0>\n" + "	r9: mutex(Biblioteca, Sala_de_juegos)\n";
 		try {
-			File file = new File("temp/test-data/HLVLFiles/commonTest.hlvl");
+			File file = new File(COMMON_PATH_OUTPUT+"/commonTest.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
@@ -816,8 +819,8 @@ class TestxmlToHLVLParser {
 	public void smallTest() {
 
 		ParsingParameters params = new ParsingParameters();
-		params.setInputPath("temp/test-data/xmlToHLVLFiles/smallTest");
-		params.setOutputPath("temp/test-data/HLVLFiles");
+		params.setInputPath(COMMON_PATH_INPUT+"smallTest");
+		params.setOutputPath(COMMON_PATH_OUTPUT);
 		params.setTargetName("smallTest");
 		variamosXMLToHlvlParser = new VariamosXMLToHlvlParser(params);
 		try {
@@ -845,7 +848,7 @@ class TestxmlToHLVLParser {
 				"	r6: mutex(AnteMinusJardin, cuartoInvitador)\n";
 
 		try {
-			File file = new File("temp/test-data/HLVLFiles/smallTest.hlvl");
+			File file = new File(COMMON_PATH_OUTPUT+"/smallTest.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
@@ -870,8 +873,8 @@ class TestxmlToHLVLParser {
 	public void bigTest() {
 
 		ParsingParameters params = new ParsingParameters();
-		params.setInputPath("temp/test-data/xmlToHLVLFiles/bigTest");
-		params.setOutputPath("temp/test-data/HLVLFiles/");
+		params.setInputPath(COMMON_PATH_INPUT+"bigTest");
+		params.setOutputPath(COMMON_PATH_OUTPUT);
 		params.setTargetName("bigTest");
 		variamosXMLToHlvlParser = new VariamosXMLToHlvlParser(params);
 		try {
@@ -961,7 +964,7 @@ class TestxmlToHLVLParser {
 
 
 		try {
-			File file = new File("temp/test-data/HLVLFiles/bigTest.hlvl");
+			File file = new File(COMMON_PATH_OUTPUT+"/bigTest.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();

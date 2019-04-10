@@ -9,7 +9,7 @@ import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
 import com.coffee.modelParsers.basicHLVLPackage.GroupType;
 import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
-import com.coffee.modelParsers.basicHLVLPackage.IhlvlBasicFactory;
+import com.coffee.modelParsers.basicHLVLPackage.IHlvlAttFactory;
 import com.coffee.modelParsers.utils.FileUtils;
 import com.coffee.modelParsers.utils.ParsingParameters;
 /**
@@ -38,7 +38,7 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	 * @param converter: relationship with the HlvlBasicFactory class that fulfills
 	 *                   the function of create HLVL code
 	 */
-	private IhlvlBasicFactory converter;
+	private IHlvlAttFactory converter;
 	/**
 	 * @param xmlReader: relationship with the XmlReader class that fulfills the
 	 *                   function of loading the XML file
@@ -238,7 +238,8 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 
 	/**
 	 * this method is responsible to find the value's attribute name from n
-	 * 
+	 * @param n: n represent a Node
+	 * @return String: ArrayList that represent the node's name
 	 */
 	public String findNameInNode(Node n) {
 		String nodeName = "";
@@ -255,7 +256,7 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	/**
 	 * this method is responsible to add in HlvlCode the HLVL code that represent to
 	 * n
-	 * 
+	 * @param n: n represent a Node
 	 */
 	public void addElement(Node n) {
 		for (int i = 0; i < n.getAttributes().getLength(); i++) {
@@ -263,10 +264,22 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 				if (params != null) {
 					HlvlCode.insert(converter.getHeader(params.getTargetName() + "_generated").length(),
 							"	" + converter.getElement(n.getAttributes().item(i).getNodeValue()));
+					addAttributes(n);
 				} else {
 
 					HlvlCode.insert((converter.getHeader("Auto_generated").length()),
 							"	" + converter.getElement(n.getAttributes().item(i).getNodeValue()));
+					addAttributes(n);
+				}
+			}
+		}
+	}
+	
+	public void addAttributes(Node n) {
+		for (int i = 0; i < n.getChildNodes().getLength(); i++) {
+			if (n.getChildNodes().item(i).getNodeName().equals("attribute")) {
+				for (int j = 0; j <n.getChildNodes().item(i).getAttributes().getLength(); j++) {
+					System.out.println(n.getChildNodes().item(i).getAttributes().item(j));
 				}
 			}
 		}
