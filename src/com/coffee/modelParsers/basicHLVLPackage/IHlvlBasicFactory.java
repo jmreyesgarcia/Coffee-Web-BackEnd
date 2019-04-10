@@ -9,7 +9,7 @@ import java.util.List;
  * Coffee V1
  * January 2019
  */
-public interface IHlvlAttFactory {
+public interface IHlvlBasicFactory {
 	
 	/**
 	 * Produces an hlvl sentence with the declaration of a boolean element

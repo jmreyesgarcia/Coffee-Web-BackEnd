@@ -8,7 +8,7 @@ import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
 import com.coffee.modelParsers.basicHLVLPackage.GroupType;
 import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
-import com.coffee.modelParsers.basicHLVLPackage.IHlvlAttFactory;
+import com.coffee.modelParsers.basicHLVLPackage.IHlvlBasicFactory;
 import com.coffee.modelParsers.utils.FileUtils;
 import com.coffee.modelParsers.utils.ParsingParameters;
 
@@ -54,7 +54,7 @@ public class VariamosXMLToHlvlParser implements IHlvlParser {
 	 * @param converter: relationship with the HlvlBasicFactory class that fulfills
 	 *        the function of create HLVL code
 	 */
-	private IHlvlAttFactory converter;
+	private IHlvlBasicFactory converter;
 
 	/**
 	 * this method is responsible for create a VariamosXMLToHlvlParser objet and

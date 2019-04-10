@@ -161,7 +161,7 @@ class TestFeatureIDEToHLVL {
 
 		try {
 			String variamosResult = fToH.parse(xml);
-		System.out.println(resultado);
+	
 			assertTrue(resultado.equals(variamosResult));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -266,7 +266,7 @@ class TestFeatureIDEToHLVL {
 				"	r12: implies(TRESGConector,GPU)\n" + 
 				"	r13: mutex(GPS, Chess)\n";
 		try {
-			File file = new File(COMMONT_PATH_OUTPUT+"commonTest0.hlvl");
+			File file = new File(COMMONT_PATH_OUTPUT+"/commonTest0.hlvl");
 			FileReader f = new FileReader(file);
 			BufferedReader in = new BufferedReader(f);
 			String linea = in.readLine();
@@ -276,6 +276,79 @@ class TestFeatureIDEToHLVL {
 				datosHLVL += linea + "\n";
 				linea = in.readLine();
 			}
+			assertTrue(datosHLVL.equals(resultado));
+			in.close();
+			f.close();
+		} catch (IOException e) {
+			fail();
+		}
+
+	}
+	
+	@Test
+	public void testWithAttributes() {
+		ParsingParameters params = new ParsingParameters();
+		params.setInputPath(COMMONT_PATH_INPUT);
+		params.setOutputPath(COMMONT_PATH_OUTPUT);
+		params.setTargetName("commonTestWithAttributes");
+		fToH = new FeatureIDEToHLVL(params);
+
+		try {
+			fToH.parse();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String resultado = "model  commonTest01_generated\n" + 
+				"elements: \n" + 
+				"	boolean Tetris\n" + 
+				"	boolean TRESD_Car_Race\n" + 
+				"	boolean Chess\n" + 
+				"	boolean Games\n" + 
+				"	boolean Task\n" + 
+				"	att long maxParConn\n" + 
+				"	boolean Video_Call\n" + 
+				"	boolean GPS\n" + 
+				"	att long size\n" + 
+				"	boolean RAM\n" + 
+				"	boolean GPU\n" + 
+				"	att long speed\n" + 
+				"	boolean CPU\n" + 
+				"	boolean Processors\n" + 
+				"	att long resolution\n" + 
+				"	boolean Screen\n" + 
+				"	att double speed\n" + 
+				"	boolean TRESG_Conector\n" + 
+				"	boolean Hardware\n" + 
+				"	boolean Mobile_Phone\n" + 
+				"relations:\n" + 
+				"	r0: coreElements(Mobile_Phone)\n" + 
+				"	r1:decomposition(Mobile_Phone,[Hardware])<1>\n" + 
+				"	r2:decomposition(Hardware,[TRESG_Conector])<0>\n" + 
+				"	r3:decomposition(Hardware,[Screen])<1>\n" + 
+				"	r4:decomposition(Hardware,[Processors])<1>\n" + 
+				"	r5:decomposition(Processors,[CPU])<0>\n" + 
+				"	r6:decomposition(Processors,[GPU])<0>\n" + 
+				"	r7:decomposition(Hardware,[RAM])<1>\n" + 
+				"	r8:decomposition(Hardware,[GPS])<0>\n" + 
+				"	r9:decomposition(Mobile_Phone,[Video_Call])<0>\n" + 
+				"	r10:decomposition(Mobile_Phone,[Task])<0>\n" + 
+				"	r11:group(Games,[Chess, TRESD_Car_Race, Tetris])[1,*]\n" + 
+				"	r12:decomposition(Mobile_Phone,[Games])<0>\n" + 
+				""
+;
+		try {
+			File file = new File(COMMONT_PATH_OUTPUT+"/commonTest01.hlvl");
+			FileReader f = new FileReader(file);
+			BufferedReader in = new BufferedReader(f);
+			String linea = in.readLine();
+		
+			String datosHLVL = "";
+			while (!linea.equals("")) {
+				datosHLVL += linea + "\n";
+				linea = in.readLine();
+			}
+			System.out.println(datosHLVL);
+			System.out.println(resultado);
 			assertTrue(datosHLVL.equals(resultado));
 			in.close();
 			f.close();

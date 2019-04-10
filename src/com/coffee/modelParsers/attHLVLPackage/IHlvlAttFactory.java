@@ -1,6 +1,8 @@
 package com.coffee.modelParsers.attHLVLPackage;
 
-public interface IHlvlAttFactory {
+import com.coffee.modelParsers.basicHLVLPackage.IHlvlBasicFactory;
 
-	public String getElement(String identifier, AttType type);
+public interface IHlvlAttFactory extends IHlvlBasicFactory {
+
+	public String getAtt(String identifier, AttType type);
 }

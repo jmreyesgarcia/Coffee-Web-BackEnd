@@ -10,7 +10,7 @@ import java.util.List;
  * Coffee V1
  * January 2019
  */
-public class HlvlBasicFactory implements IHlvlAttFactory, HlvlBasicKeys{
+public class HlvlBasicFactory implements IHlvlBasicFactory, HlvlBasicKeys{
 	private int numId=0;
 	private String id="r";
 	private CnfExpFactory expFactory= new CnfExpFactory();

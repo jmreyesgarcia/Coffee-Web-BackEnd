@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.coffee.modelParsers.attHLVLPackage.AttType;
+import com.coffee.modelParsers.attHLVLPackage.HlvlAttFactory;
+import com.coffee.modelParsers.attHLVLPackage.IHlvlAttFactory;
 import com.coffee.modelParsers.basicHLVLPackage.DecompositionType;
 import com.coffee.modelParsers.basicHLVLPackage.GroupType;
 import com.coffee.modelParsers.basicHLVLPackage.HlvlBasicFactory;
 import com.coffee.modelParsers.basicHLVLPackage.IHlvlParser;
-import com.coffee.modelParsers.basicHLVLPackage.IHlvlAttFactory;
+import com.coffee.modelParsers.basicHLVLPackage.IHlvlBasicFactory;
 import com.coffee.modelParsers.utils.FileUtils;
 import com.coffee.modelParsers.utils.ParsingParameters;
 /**
@@ -87,9 +90,8 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	 * @param xml: String with XML code to load and transform
 	 */
 	public void Initializate(String xml) {
-		converter = new HlvlBasicFactory();
+		converter = new HlvlAttFactory();
 		xmlReader = new XmlReader();
-		converter = new HlvlBasicFactory();
 		HlvlCode = new StringBuilder();
 		xmlReader.loadXmlString(xml);
 		xmlTree = xmlReader.getXmlTree();
@@ -264,23 +266,38 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 				if (params != null) {
 					HlvlCode.insert(converter.getHeader(params.getTargetName() + "_generated").length(),
 							"	" + converter.getElement(n.getAttributes().item(i).getNodeValue()));
-					addAttributes(n);
+					addAttributes(n,converter.getHeader(params.getTargetName() + "_generated").length());
 				} else {
 
 					HlvlCode.insert((converter.getHeader("Auto_generated").length()),
 							"	" + converter.getElement(n.getAttributes().item(i).getNodeValue()));
-					addAttributes(n);
+					addAttributes(n,converter.getHeader("Auto_generated").length());
 				}
 			}
 		}
 	}
 	
-	public void addAttributes(Node n) {
+	public void addAttributes(Node n, int pos) {
 		for (int i = 0; i < n.getChildNodes().getLength(); i++) {
 			if (n.getChildNodes().item(i).getNodeName().equals("attribute")) {
-				for (int j = 0; j <n.getChildNodes().item(i).getAttributes().getLength(); j++) {
-					System.out.println(n.getChildNodes().item(i).getAttributes().item(j));
-				}
+			
+					String name =n.getChildNodes().item(i).getAttributes().item(0).getNodeValue();
+					String type=n.getChildNodes().item(i).getAttributes().item(1).getNodeValue();
+					switch (type) {
+					case "double":
+						HlvlCode.insert(pos,"	" + converter.getAtt(name,AttType.DOUBLE));
+						break;
+					case "long":
+						HlvlCode.insert(pos,"	" + converter.getAtt(name,AttType.LONG));
+						break;
+					case "integer":
+						HlvlCode.insert(pos,"	" + converter.getAtt(name,AttType.INTEGER));
+						break;
+					case "string":
+						HlvlCode.insert(pos,"	" + converter.getAtt(name,AttType.STRING));
+						break;
+					}
+
 			}
 		}
 	}
@@ -307,7 +324,7 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	public void parse() throws Exception {
 		Initializate();
 		for (int i = 0; i < xmlTree.size(); i++) {
-			converter = new HlvlBasicFactory();
+			converter = new HlvlAttFactory();
 			HlvlCode = new StringBuilder();
 			HlvlCode.append(converter.getHeader(params.getTargetName() + "_generated"));
 			readTree(xmlTree.get(i));
