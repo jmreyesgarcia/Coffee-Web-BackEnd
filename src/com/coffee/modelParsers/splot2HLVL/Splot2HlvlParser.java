@@ -246,6 +246,12 @@ public class Splot2HlvlParser implements IHlvlParser{
 		return hlvlProgram.toString();
 	}
 
+	@Override
+	public String parse(String data) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

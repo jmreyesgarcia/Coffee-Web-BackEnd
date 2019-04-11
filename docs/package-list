@@ -1,0 +1,13 @@
+com.coffee.coffeeParser
+com.coffee.common.commandExecutor
+com.coffee.common.utils
+com.coffee.compiler
+com.coffee.miniZincExecutor
+com.coffee.modelParsers.VarToHLVL
+com.coffee.modelParsers.basicHLVLPackage
+com.coffee.modelParsers.featureIDEToHLVL
+com.coffee.modelParsers.featureIDEToHlvlParser
+com.coffee.modelParsers.splot2HLVL
+com.coffee.modelParsers.utils
+com.coffee.modelParsers.varXmlToHLVLParser
+com.coffee.web

@@ -23,6 +23,12 @@ public interface IHlvlParser {
 	 */
 	public void parse() throws Exception;
 	
+	/**
+	 * Method 
+	 * @throws Exception: 
+	 */
+	public String parse(String data)throws Exception;
+	
 	
 
 
